@@ -5,6 +5,7 @@ body {
 }
 
 header {
+    position: relative;
     text-align: center; /* Center the title */
     margin-bottom: 40px; /* Space below the header */
 }
@@ -22,11 +23,79 @@ h2:hover {
     text-shadow: 0 0 10px rgba(72, 255, 0, 0.6);
 }
 
+button {
+    margin-top: -5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#back-button {
+    position: absolute; /* Position the icon at the top left corner */
+    top: 10px; /* Distance from the top */
+    left: 40px; /* Distance from the left */
+    background-color: transparent; /* Transparent background */
+    color: #28a745; /* Green color for the icon */
+    font-size: 24px; /* Icon size */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+#back-button:hover {
+    transform: scale(1.1); /* Slightly scale up on hover */
+}
+
+/* Help Button Style */
+.help-btn {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000; /* Make sure it's on top */
+    background: none; /* No background */
+    border: none; /* No border */
+}
+
+/* Instructions Popup Styling */
+.instructions-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    max-width: 80%;
+    text-align: left;
+    z-index: 10;
+}
+
+/* Close Button Styling */
+#close-instructions {
+    margin-top: 15px;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
 .crossword-container {
     display: flex; 
     justify-content: space-between;
     align-items: flex-start;
-    margin-left: 30px;
+    margin-left: 50px;
 }
 
 #crossword-grid {
@@ -54,6 +123,7 @@ h2:hover {
     border: 1px solid #28a745; 
     background-color: #F3F3F3;
     border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .letter-text {
@@ -64,6 +134,7 @@ h2:hover {
 
 .blank-cell {
     background-color: #28a745;
+    box-shadow: none;
 }
 
 .clickable {
