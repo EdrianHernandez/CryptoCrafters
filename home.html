@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoCrafters</title>
+    <link type="text/css" rel="stylesheet" href="home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#cryptogram-game').click(function() {
+                $(this).addClass('button-clicked');
+                setTimeout(() => {
+                    window.location.href = 'cryptogram.html';
+                }, 500); 
+            });
+
+            $('#crossword-game').click(function() {
+                $(this).addClass('button-clicked');
+                setTimeout(() => {
+                    window.location.href = 'crossword.html';
+                }, 500);
+            });
+
+            $('.container h1').hover(
+                function() { $(this).addClass('title-hover'); },
+                function() { $(this).removeClass('title-hover'); }
+            );
+        });
+    </script>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="container">
+        <h1>CryptoCrafters</h1>
+        <p>Select a game to play:</p>
+        <button id="cryptogram-game">Cryptogram</button>
+        <button id="crossword-game">Crossword</button>
+    </div>
+</body>
+</html>
