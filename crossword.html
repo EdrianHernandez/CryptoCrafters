@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>100% JQuery, Open-Source Crossword Puzzle Generator and Game</title>
+	<meta http-equiv="content-type" content="text/css/javascript/php; charset=UTF-8">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="crossword.js"></script>
+	<link type="text/css" rel="stylesheet" href="crossword.css">
+</head>
+
+<script type="text/javascript">
+	$(document).ready(function(event) {
+		var puzzlewords = [
+			['ALGORITHM', 'Step-by-step problem-solving method'],
+			['DATABASE', 'Organized collection of data'],
+			['ARRAY', 'Collection of items in memory'],
+			['CLOUD', 'Networked storage and computing service'],
+			['SECURE', 'Protected from unauthorized access'],
+			['NETWORK', 'Interconnected system of computers'],
+			['VARIABLE', 'Named data storage in programming'],
+			['INHERIT', 'Passing properties in object-oriented programming'],
+			['FUNCTION', 'Block of code that performs a task'],
+			['BINARY', 'Base-2 number system'],
+			['COMPILE', 'Convert code into executable form'],
+			['OPERATOR', 'Symbol that performs operations in code'],
+			['RECURSION', 'Function that calls itself'],
+			['VIRTUAL', 'Exists in software rather than physically'],
+			['ENCRYPTION', 'Process of securing data'],
+			['BACKEND', 'Part of an app that handles data and logic']
+		];
+		crosswordPuzzle(puzzlewords);
+	});
+</script>
+<body>
+    <header>
+        <h2>Crossword Puzzle</h2> <!-- Title -->
+    </header>
+
+    <div class="crossword-container">
+        <div id="crossword-grid">
+            <div id="root" class="root"></div>
+        </div>
+
+        <div class="clue-section">
+            <div class="clue-group">
+                <h4>Across</h4>
+                <div id="left-list" class="list-text">
+                </div>
+            </div>
+            <div class="clue-group">
+                <h4>Down</h4>
+                <div id="right-list" class="list-text">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup-container" class="hidden">
+        <div id="answer-form">
+            <div class="short-margin">
+                <p id="position-and-clue"></p>
+                <p>Answer: <input id="solution-answer" type="text" size="40"></p>
+                <p id="answer-results" class="hidden"></p>
+                <p>
+                    <input type="button" id="cancel-button" value="Cancel">
+                    <input type="button" id="answer-button" value="Answer">
+                    <input type="button" id="reveal-answer-button" value="Reveal Answer">
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
