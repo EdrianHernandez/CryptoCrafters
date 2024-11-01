@@ -1,0 +1,250 @@
+body {
+    font-family: helvetica, sans-serif;
+    background-color: #f8f9fa; /* Light background */
+    color: #333;
+}
+
+header {
+    text-align: center; /* Center the title */
+    margin-bottom: 40px; /* Space below the header */
+}
+
+h2 {
+    color: #28a745; /* Set text color */
+    font-size: 2em; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    margin-top: 30px;
+    margin-bottom: 20px; /* Space below the title */
+    transition: text-shadow 0.3s ease-in-out; /* Smooth transition for the hover effect */
+}
+
+h2:hover {
+    text-shadow: 0 0 10px rgba(72, 255, 0, 0.6);
+}
+
+.crossword-container {
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+
+#crossword-grid {
+    width: 1000px; /* Set fixed width for crossword grid */
+    margin-right: 20px; /* Space between grid and clues */
+}
+
+/* Crossword Puzzle Grid */
+.puzzle {
+    border-collapse: separate;
+    border-spacing: 1px;
+    border-color: #28a745;
+    background-color: #28a745;
+    margin-right: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.letter-cell {
+    position: relative; /* Keep it as relative */
+    text-align: center; /* Center text */
+    height: 40px;
+    width: 40px;
+    border: 1px solid #28a745; 
+    background-color: #F3F3F3;
+    border-radius: 8px;
+}
+
+.letter-text {
+    font-family: helvetica;
+    font-weight: bold;
+    color: #333;
+}
+
+.blank-cell {
+    background-color: #28a745;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.linkable {
+    color: #28a745;
+}
+
+.background-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Strikeout Effects */
+.strikeout {
+    position: relative;
+}
+
+.strikeout::after {
+    border-bottom: 0.250em solid blue;
+    content: "";
+    left: 0;
+    margin-top: calc(0.125em / 2 * -1);
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.red-strikeout {
+    position: relative;
+    color: #8a7c7c;
+}
+
+.red-strikeout::after {
+    border-bottom: 0.250em solid red;
+    content: "";
+    left: 0;
+    margin-top: calc(0.250em / 2 * -1);
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+/* Cell Number Styling */
+.crossword-grid-cell-number {
+    position: absolute; /* Keep the positioning absolute to place it relative to the cell */
+    top: -1; /* Align to the top of the cell */
+    left: -1; /* Align to the left of the cell */
+    font-family: tahoma;
+    font-size: 0.8em;
+    color: #28a745; /* Text color */
+    margin: 4px; /* Optional: Adds space between the number and the cell edges */
+    z-index: 1; /* Ensure number appears above the letter */
+    text-align: left; 
+}
+
+
+.relative-position {
+    position: relative;
+}
+
+/* Clue Section */
+.clue-section {
+    width: 500px;
+    padding: 15px;
+    background-color: white;
+    border: 2px solid #28a745; /* Emphasized border */
+    border-radius: 8px;
+    margin-right: 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.clue-section h2 {
+    font-size: 1.2em;
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.clue-section ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+/* Answer Form */
+/* General Styling for the Answer Form */
+#answer-form {
+    background: white; /* Background for the form */
+    padding: 20px; /* Padding around the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transition effects */
+    transform: scale(0.8); /* Scale down initially */
+}
+
+/* Show the form with animation when visible */
+#answer-form.visible {
+    display: block; /* Change to block when visible */
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Slide into view */
+}
+
+/* Input Styling */
+#solution-answer {
+    padding: 8px;
+    width: calc(100% - 16px); /* Full width minus padding */
+    border: 1px solid #28a745;
+    border-radius: 4px;
+    transition: border-color 0.3s ease; /* Smooth border transition */
+}
+
+#solution-answer:focus {
+    border-color: #66b3a0; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styling */
+input[type="button"] {
+    padding: 8px 12px;
+    border: none; /* Remove default border */
+    border-radius: 4px;
+    background-color: #28a745; /* Button background */
+    color: white; /* Button text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-right: 10px; /* Space between buttons */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth background and transform */
+}
+
+/* Button Hover Effect */
+input[type="button"]:hover {
+    background-color: #218838; /* Darken background on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Button Active Effect */
+input[type="button"]:active {
+    transform: translateY(0); /* Return to original position */
+}
+
+/* Hidden Results Message */
+#answer-results {
+    margin-top: 10px;
+    color: #dc3545; /* Red color for results */
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+#popup-container {
+    display: none; /* Initially hidden */
+    position: fixed; /* Use fixed positioning for overlays */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's width and height */
+    width: 500px; /* Set a fixed or max width */
+    max-width: 90%; /* Responsive design for smaller screens */
+    padding: 20px; /* Padding for inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+#popup-container.visible {
+    opacity: 1; /* Fully visible */
+    display: block;
+}
+
+#popup-container.visible #answer-form {
+    transform: scale(1); /* Scale to original size */
+}
+
+/* Spacing Utility */
+.short-margin {
+    margin: 20px;
+}
+
+.hidden {
+    display: none;
+}
