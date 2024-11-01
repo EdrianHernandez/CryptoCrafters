@@ -1,0 +1,227 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#game-title {
+    font-family: 'Montserrat', sans-serif; /* Use your preferred font */
+    font-size: 3em; /* Size of the title */
+    color: #28a745; /* Green title color */
+    text-align: center;
+    margin: 20px 0;
+    position: relative; /* For animation */
+    display: inline-block; /* Allow for hover effect */
+    transition: text-shadow 0.3s ease; /* Smooth transition for effects */
+}
+
+#game-title:hover {
+    text-shadow: 0 0 10px rgba(72, 255, 0, 0.6);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the fade-in animation */
+#game-title {
+    animation: fadeIn 1s ease forwards;
+}
+
+#back-button {
+    position: absolute; /* Position the icon at the top left corner */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    background-color: transparent; /* Transparent background */
+    color: #28a745; /* Green color for the icon */
+    font-size: 24px; /* Icon size */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+#back-button:hover {
+    transform: scale(1.1); /* Slightly scale up on hover */
+}
+
+
+/* Encoded Quote Layout */
+.encoded-quote-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.encoded-word {
+    margin: 0 10px;
+    display: flex;
+}
+
+.letter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="text"] {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Result Message */
+#result {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #d9534f;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 480px) {
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .encoded-quote-container {
+        margin: 10px 0;
+    }
+
+    .encoded-word {
+        margin: 0 5px;
+    }
+
+    input[type="text"] {
+        width: 25px;
+        height: 25px;
+        font-size: 20px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    #result {
+        font-size: 16px;
+    }
+}
+
+/* Help Button Styling */
+.help-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Instructions Popup Styling */
+.instructions-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    max-width: 80%;
+    text-align: left;
+    z-index: 10;
+}
+
+/* Close Button Styling */
+#close-instructions {
+    margin-top: 15px;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
