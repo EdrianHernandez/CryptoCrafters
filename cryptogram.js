@@ -22,12 +22,15 @@ let hintIndex = 0;
 let focusedInputField = null; // Track the current input field in focus
 let hintsUsed = 0; // Track the number of hints used
 const maxHints = 2;
+let timerInterval;
+let timeLeft = 300; // Timer set for 5 minutes (300 seconds)
 
 // Load sound files
 const correctSound = new Audio('sounds/correct.mp3');
 const incorrectSound = new Audio('sounds/incorrect.mp3');
 const hintSound = new Audio('sounds/hint.mp3');
 
+// Function to encode quote
 // Function to encode quote
 function encodeQuote(quote) {
     return quote.split('').map(char => {
@@ -40,12 +43,11 @@ function encodeQuote(quote) {
     }).join('');
 }
 
-
 // Function to display new encoded quote
 function displayNewQuote() {
     currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
     const encoded = encodeQuote(currentQuote.quote);
-    document.getElementById('clue').innerText = `Quote: ${currentQuote.author}`;
+    document.getElementById('clue').innerHTML = `<strong>Quote:</strong> ${currentQuote.author}`;
     document.getElementById('result').innerText = '';
     hintIndex = 0;
 
@@ -87,6 +89,15 @@ function displayNewQuote() {
                     inputFieldsMap[char].forEach(field => field.value = enteredValue);
                 });
 
+                // Add hover effect event listeners for all fields of the same letter
+                input.addEventListener("mouseenter", function () {
+                    inputFieldsMap[char].forEach(field => field.classList.add('hover-effect'));
+                });
+
+                input.addEventListener("mouseleave", function () {
+                    inputFieldsMap[char].forEach(field => field.classList.remove('hover-effect'));
+                });
+
             } else {
                 const punctuationSpan = document.createElement('span');
                 punctuationSpan.innerText = char;
@@ -100,6 +111,9 @@ function displayNewQuote() {
         encodedContainer.appendChild(wordContainer);
     }
     encodedContainer.classList.add('fade-in');
+
+    // Reset timer
+    resetTimer();
 }
 
 
@@ -110,8 +124,14 @@ function checkAnswer() {
     const originalQuote = currentQuote.quote.toLowerCase().replace(/[^a-z]/g, '');
 
     if (userInput === originalQuote) {
+        clearInterval(timerInterval); // Stop the timer
         document.getElementById('result').innerText = 'Correct! 🎉';
         correctSound.play();
+
+        // Show the new quote after a brief delay
+        setTimeout(() => {
+            displayNewQuote();
+        }, 5000); // Adjust delay time as desired
     } else {
         document.getElementById('result').innerText = 'Try again!';
         incorrectSound.play();
@@ -121,6 +141,7 @@ function checkAnswer() {
         });
     }
 }
+
 
 // Provide hint by revealing a letter
 function provideHint() {
@@ -136,17 +157,27 @@ function provideHint() {
         return;
     }
 
-    const inputs = document.querySelectorAll('#encoded-quote input');
-    const inputIndex = Array.from(inputs).indexOf(focusedInputField);
-    const originalLetters = currentQuote.quote.toUpperCase().split('');
+    // Get all inputs in the encoded quote section, focusing only on letters
+    const inputs = Array.from(document.querySelectorAll('#encoded-quote input[type="text"]'));
+    const originalLetters = currentQuote.quote.toUpperCase().split('').filter(char => /[A-Z]/.test(char)); // Only alphabetic chars
+    const encodedLetters = encodeQuote(currentQuote.quote).split('').filter(char => /[A-Z]/.test(char)); // Only alphabetic chars
+
+    // Find the index of the focused input field in the alphabetic-only array
+    const inputIndex = inputs.indexOf(focusedInputField);
     const letterToReveal = originalLetters[inputIndex];
 
     // Check if the focused input corresponds to a letter in the quote
-    if (letterToReveal.match(/[A-Z]/i)) {
-        focusedInputField.value = letterToReveal; // Reveal the letter
-        focusedInputField.style.color = 'green'; // Color the revealed letter
+    if (letterToReveal) { // Only proceed if there’s a valid letter to reveal
+        // Reveal all matching letters across the puzzle
+        inputs.forEach((input, index) => {
+            if (originalLetters[index] === letterToReveal && input.value === "") { // Only reveal if it's empty
+                input.value = letterToReveal; // Reveal the letter
+                input.style.color = '#090979'; // Style the revealed letter
+                input.parentElement.classList.add('fade-in'); // Add animation
+            }
+        });
+
         hintSound.play(); // Play hint sound
-        focusedInputField.parentElement.classList.add('fade-in'); // Add animation for reveal
         hintsUsed++; // Increment hint usage
     } else {
         alert("Please focus on a letter input field.");
@@ -154,9 +185,70 @@ function provideHint() {
 }
 
 
+function revealAnswer() {
+    clearInterval(timerInterval);
+    
+    const inputs = document.querySelectorAll('#encoded-quote input'); // Get all input fields
+    const originalLetters = currentQuote.quote.toUpperCase().split(''); // Split the original quote into letters
+
+    let letterIndex = 0; // Initialize a letter index to track position in the originalLetters array
+
+    // Loop through each input and set its value to the corresponding letter, ignoring spaces and punctuation
+    inputs.forEach(input => {
+        // Only reveal letters
+        while (letterIndex < originalLetters.length && !originalLetters[letterIndex].match(/[A-Z]/i)) {
+            letterIndex++; // Skip non-letter characters
+        }
+
+        if (letterIndex < originalLetters.length) { // Check if the letter index is still valid
+            input.value = originalLetters[letterIndex]; // Set the input value to the letter
+            input.style.color = '#090979'; // Change the color to indicate it's revealed
+
+            // Add fade-in class to the input field
+            input.parentElement.classList.add('fade-in'); // Assuming input's parent is the one to fade in
+
+            hintSound.play();
+            letterIndex++; // Move to the next letter
+        }
+    });
+}
+
+// Timer functions
+function startTimer() {
+    timerInterval = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById('timer').innerHTML = "<strong>Timer:</strong> Time's up!";
+            alert("Time's up! You can no longer enter answers.");
+            revealAnswer();
+
+            // Delay the call to displayNewQuote by a few seconds (e.g., 3 seconds)
+            setTimeout(() => {
+                displayNewQuote();
+            }, 10000); // 10000 milliseconds = 10 seconds
+        } else {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').innerHTML = `<strong>Timer:</strong> ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            timeLeft--;
+        }
+    }, 1000);
+}
+
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    timeLeft = 300; // Reset time left to 5 minutes
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    document.getElementById('timer').innerHTML = `<strong>Timer:</strong> ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`; // Initialize timer display
+    startTimer(); // Start the timer when a new quote is displayed
+}
+
 document.getElementById('submit-btn').addEventListener('click', checkAnswer);
 document.getElementById('new-quote-btn').addEventListener('click', displayNewQuote);
 document.getElementById('hint-btn').addEventListener('click', provideHint);
+document.getElementById('reveal-answer-btn').addEventListener('click', revealAnswer);
 
 window.onload = displayNewQuote;
 
@@ -168,8 +260,6 @@ document.getElementById('help-btn').addEventListener('click', () => {
 document.getElementById('close-instructions').addEventListener('click', () => {
     document.getElementById('instructions-popup').style.display = 'none';
 });
-
-document.getElementById('hint-btn').addEventListener('click', provideHint);
 
 document.addEventListener('focusin', (event) => {
     if (event.target.tagName === 'INPUT') {
