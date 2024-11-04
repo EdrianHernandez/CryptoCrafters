@@ -27,16 +27,46 @@
                 function() { $(this).addClass('title-hover'); },
                 function() { $(this).removeClass('title-hover'); }
             );
+
+            // Toggle navigation menu
+            $('#burger-menu').click(function() {
+                $('.nav-widget').toggleClass('active');
+            });
         });
     </script>
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <div class="container">
-        <h1>CryptoCrafters</h1>
-        <p>Select a game to play:</p>
-        <button id="cryptogram-game">Cryptogram</button>
-        <button id="crossword-game">Crossword</button>
+    <div id="burger-menu" class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    
+    <nav class="nav-widget">
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="learn.html">Learn</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <h1>CryptoCrafters</h1>
+            <p>Select a game to play:</p>
+            <button id="cryptogram-game">
+                <img src="icons/cryptogram-icon.png" alt="Cryptogram Icon" class="icon-3d">
+                Cryptogram
+            </button>
+            <button id="crossword-game">
+                <img src="icons/crossword-icon.png" alt="Crossword Icon" class="icon-3d">
+                Crossword
+            </button>
+        </div>
     </div>
 </body>
+
 </html>
