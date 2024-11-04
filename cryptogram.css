@@ -1,31 +1,34 @@
 /* Base Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background: rgb(0, 150, 255); /* Change to a deeper blue */
+    background: radial-gradient(circle, rgba(0, 150, 255, 1) 0%, rgba(9, 9, 121, 1) 34%, rgba(2, 0, 36, 1) 100%);
+    color: #fff; /* Set text color to white for better contrast */
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 50px auto;
     padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 #game-title {
-    font-family: 'Montserrat', sans-serif; /* Use your preferred font */
-    font-size: 3em; /* Size of the title */
-    color: #28a745; /* Green title color */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    color: #ffcc00; /* Change title color to match home page */
     text-align: center;
     margin: 20px 0;
-    position: relative; /* For animation */
-    display: inline-block; /* Allow for hover effect */
-    transition: text-shadow 0.3s ease; /* Smooth transition for effects */
+    position: relative;
+    display: inline-block;
+    transition: text-shadow 0.3s ease;
 }
 
 #game-title:hover {
@@ -49,19 +52,18 @@ body {
 }
 
 #back-button {
-    position: absolute; /* Position the icon at the top left corner */
-    top: 20px; /* Distance from the top */
-    left: 20px; /* Distance from the left */
-    background-color: transparent; /* Transparent background */
-    color: #28a745; /* Green color for the icon */
-    font-size: 24px; /* Icon size */
-    transition: transform 0.3s ease; /* Smooth transition for scaling */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    background-color: transparent; 
+    color: #ffcc00; /* Adjust back button color to match title */
+    font-size: 24px;
+    transition: transform 0.3s ease;
 }
 
 #back-button:hover {
-    transform: scale(1.1); /* Slightly scale up on hover */
+    transform: scale(1.1);
 }
-
 
 /* Encoded Quote Layout */
 .encoded-quote-container {
@@ -70,6 +72,18 @@ body {
     align-items: flex-end;
     margin: 20px 0;
     flex-wrap: wrap;
+}
+
+#timer {
+    font-size: 16px;
+    color: white; 
+    background-color: #FF5733; /* Bright background color */
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-top: -25px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
 }
 
 .encoded-word {
@@ -84,6 +98,7 @@ body {
     margin: 0 2px;
     margin-bottom: 20px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 1s ease forwards;
 }
 
 input[type="text"] {
@@ -94,7 +109,20 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"]:hover {
+    background-color: #9099ce; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hover-effect {
+    background-color: #9099ce;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 span {
@@ -107,15 +135,27 @@ button {
     padding: 10px 15px;
     margin: 5px;
     border: none;
+    background-color: #ffcc00; /* Match to home page */
+    color: #333;
     border-radius: 5px;
-    background-color: #28a745;
-    color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1em;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #ffd427;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.button-clicked {
+    animation: clickEffect 0.5s ease;
 }
 
 /* Result Message */
@@ -160,12 +200,20 @@ button:hover {
         padding: 15px;
     }
 
-    h1 {
-        font-size: 24px;
+    #game-title {
+        font-size: 2em; 
+        margin-top: 80px; 
+    }
+
+    #timer {
+        font-size: 14px; 
+        padding: 4px 8px; 
+        margin-top: 10px; 
     }
 
     .encoded-quote-container {
-        margin: 10px 0;
+        margin: 50px 0;
+        justify-content: center;
     }
 
     .encoded-word {
@@ -173,8 +221,8 @@ button:hover {
     }
 
     input[type="text"] {
-        width: 25px;
-        height: 25px;
+        width: 23px;
+        height: 23px;
         font-size: 20px;
     }
 
@@ -186,33 +234,53 @@ button:hover {
     #result {
         font-size: 16px;
     }
+
+    #back-button {
+        font-size: 20px; 
+        top: 40px; 
+        left: 30px; 
+    }
+
+    .help-btn {
+        font-size: 20px; 
+    }
+
+    /* Instructions Popup Styling */
+    .instructions-popup {
+        padding: 15px; 
+        max-width: 95%; 
+        width: 90%; 
+        font-size: 14px; 
+    }
 }
 
 /* Help Button Styling */
 .help-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     background-color: transparent;
     border: none;
     font-size: 24px;
-    cursor: pointer;
 }
 
 /* Instructions Popup Styling */
 .instructions-popup {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
     transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    max-width: 80%;
+    padding: 15px; 
+    max-width: 95%; 
+    width: 90%; 
+    font-size: 14.5px; 
     text-align: left;
-    z-index: 10;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    overflow: auto; 
+    z-index: 1000; 
 }
 
 /* Close Button Styling */
