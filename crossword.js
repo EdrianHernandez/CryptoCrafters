@@ -702,8 +702,9 @@ function checkToBuildVertically(matrix, smallmatrix, widestline, tallestline) {
 	
 	return randomTrueFalse();
 }
+
 function randomTrueFalse() {
-	return Math.random() > 0.5 ? true : false;
+	return Math.random() >= 0.5;
 }
 
 function getWidestLine(matrix) {
@@ -1091,43 +1092,47 @@ function compactCrosswordBlockLeft(graph) {
 }
 
 function compactCrosswordBlockRight(graph) {
-	var crosswordblock = graph['matrix'];
-	var crosswordblocksolutions = graph['matrixpositions'];
-	var crosswordblockacross = graph['across'];
-	
-	var longestpiece = getWidestLine(crosswordblock) - 1;
-	var crosswordblocklength = crosswordblock.length;
-	
-	var shorten = true;
-	
-	while(shorten) {
-		if(crosswordblocklength) {
-			for(var i = 0; i < crosswordblocklength; i++) {
-				if(crosswordblock[i]) {
-					var crosswordrow = crosswordblock[i];
-					if(crosswordrow[longestpiece] && crosswordrow[longestpiece] != ' ') {
-						shorten = false;
-						i = crosswordblocklength;
-					}
-				}
-			}
-		} else {
-			shorten = false;
-		}
-		if(shorten) {
-			longestpiece--;
-			for(var i = 0; i < crosswordblocklength; i++) {
-				var crosswordrow = crosswordblock[i];
-				crosswordblock[i] = crosswordrow.substr(0, crosswordrow.length - 1);
-			}
-		}
-	}
-	
-	graph['matrix'] = crosswordblock;
-	graph['matrixpositions'] = crosswordblocksolutions;
-	
-	return graph;
+    var crosswordblock = graph['matrix'];
+    var crosswordblocksolutions = graph['matrixpositions'];
+    var crosswordblockacross = graph['across'];
+    
+    var longestpiece = getWidestLine(crosswordblock) - 1;
+    var crosswordblocklength = crosswordblock.length;
+    
+    var shorten = true;
+    
+    while (shorten) {
+        if (crosswordblocklength) {
+            for (var i = 0; i < crosswordblocklength; i++) {
+                if (crosswordblock[i]) {
+                    var crosswordrow = crosswordblock[i];
+                    if (crosswordrow[longestpiece] && crosswordrow[longestpiece] != ' ') {
+                        shorten = false;
+                        i = crosswordblocklength;
+                    }
+                }
+            }
+        } else {
+            shorten = false;
+        }
+
+        if (shorten) {
+            longestpiece--;
+            for (var i = 0; i < crosswordblocklength; i++) {
+                var crosswordrow = crosswordblock[i];
+                if (crosswordrow.length > longestpiece) {
+                    crosswordblock[i] = crosswordrow.substr(0, longestpiece + 1);
+                }
+            }
+        }
+    }
+    
+    graph['matrix'] = crosswordblock;
+    graph['matrixpositions'] = crosswordblocksolutions;
+    
+    return graph;
 }
+
 
 function generateCrosswordBlockSources(shuffledwords) {
 	var crosswordblocks = [];
