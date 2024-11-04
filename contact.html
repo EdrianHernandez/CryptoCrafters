@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CryptoCrafters</title>
+    <link type="text/css" rel="stylesheet" href="contact.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Toggle navigation menu
+            $('#burger-menu').click(function() {
+                $('.nav-widget').toggleClass('active');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="burger-menu" class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    
+    <nav class="nav-widget">
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="learn.html">Learn</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="noise-overlay"></div>
+    <div class="container" data-aos="fade-up">
+        <img class="gif-overlay">
+        <div class="row">
+            <div class="column left">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you! Please fill out the form with you inquiry.</p>
+            </div>
+            <div class="column right">
+                <div class="form-row" data-aos="fade-up">
+                    <form class="contact-form">
+                        <div class="form-group name-row">
+                            <div class="name-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" name="first-name" placeholder="Your First Name" required>
+                            </div>
+                            <div class="name-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" name="last-name" placeholder="Your Last Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">What can we help you with?</label>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+        });
+    </script>
+</body>
+</html>
