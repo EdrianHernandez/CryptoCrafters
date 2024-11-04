@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CryptoCrafters</title>
+    <link type="text/css" rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#burger-menu').click(function() {
+                $('.nav-widget').toggleClass('active');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="burger-menu" class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    
+    <nav class="nav-widget">
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="learn.html">Learn</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>About Us</h1>
+        <p>We are a team of passionate developers dedicated to creating engaging and educational games. Our mission is to make learning fun and interactive!</p>
+        <div class="team">
+            <div class="team-member" data-aos="fade-up">
+                <h3 class="team-name">Edrian Hernandez</h3>
+                <h4 class="team-role">Front-End Developer</h4>
+                <p class="team-description">Our front-end developer specializes in creating visually appealing and user-friendly interfaces.</p>
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/profile.php?id=100010760075892" target="_blank" class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://github.com/EdrianHernandez" target="_blank" class="social-btn github-btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:22-01268@g.batstate-u.edu.ph" target="_blank" class="social-btn gmail-btn">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="team-member" data-aos="fade-up">
+                <h3 class="team-name">Jofether Mendoza</h3>
+                <h4 class="team-role">Back-End Developer</h4> 
+                <p class="team-description">Our back-end developer ensures smooth server-side operations and database management.</p>
+                <div class="social-buttons">
+                    <a href="https://facebook.com/johndoe" target="_blank" class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://github.com/johndoe" target="_blank" class="social-btn github-btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:22-01268@g.batstate-u.edu.ph" target="_blank" class="social-btn gmail-btn">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="team-member" data-aos="fade-up">
+                <h3 class="team-name">Chester Lajara</h3>
+                <h4 class="team-role">Project Manager</h4>
+                <p class="team-description">Our project manager coordinates the team and ensures timely delivery of projects.</p>
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/chistirrrrr?mibextid=ZbWKwL" target="_blank" class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://github.com/Chesterlajara" target="_blank" class="social-btn github-btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:22-02080@g.batstate-u.edu.ph" target="_blank" class="social-btn gmail-btn">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+        });
+    </script>
+</body>
+</html>
