@@ -18,35 +18,40 @@
         <button id="help-btn" class="help-btn">❓</button>
     
         <!-- Instructions Popup -->
-    <div id="instructions-popup" class="instructions-popup">
-        <h2>How to Play Cryptogram</h2>
-        <p><strong>Objective:</strong> Decode the encrypted quote by figuring out which letters correspond to which.</p>
+        <div id="instructions-popup" class="instructions-popup" style="display:none;">
+            <h2>How to Play Cryptogram</h2>
+            <p><strong>Objective:</strong> Decode the encrypted quote by figuring out which letters correspond to which.</p>
+            
+            <p><strong>Time Limit:</strong> You have <strong>5 minutes</strong> to solve each cryptogram puzzle. A timer will start as soon as the puzzle appears, and if the time runs out, the answer will be revealed automatically.</p>
         
-        <p><strong>Steps to Play:</strong></p>
-        <ol>
-            <li>Each letter in the quote has been scrambled, meaning it has been replaced by another letter.</li>
-            <li>In the provided boxes, type your guesses for each letter. Make sure to use all uppercase letters!</li>
-            <li>If you're unsure, click the <strong>"Hint"</strong> button. It will reveal a letter for you. Keep in mind that you have a limited number of hints!</li>
-            <li>Once you’ve entered your guesses, click <strong>"Submit"</strong> to check if your answer matches the original quote.</li>
-        </ol>
+            <p><strong>Hint Limit:</strong> You can use up to <strong>2 hints</strong> per puzzle.</p>
         
-        <p><strong>Tips for Decoding:</strong></p>
-        <ul>
-            <li>Look for <strong>letter patterns</strong>: Common letters like "E," "T," and "A" appear frequently in English. Try to identify these in the scrambled text.</li>
-            <li>Check for <strong>repeated letters</strong>: If you see the same encrypted letter multiple times, it might represent a common letter like "S" or "E".</li>
-            <li>Identify <strong>short words</strong>: Words like "THE," "AND," and "IS" are often present. Guessing these can give you clues to other letters.</li>
-            <li>Write down your guesses: Keeping track of which letters you've substituted can help you see connections between them.</li>
-            <li>Don’t be afraid to experiment: Sometimes, trying different letters can lead to new insights.</li>
-        </ul>
-
-        <button id="close-instructions">Close</button>
-    </div>
-    
+            <p><strong>Steps to Play:</strong></p>
+            <ol>
+                <li>Each letter in the quote is replaced by a different letter using a Caesar cipher.</li>
+                <li>Type your guesses in the boxes.</li>
+                <li>If you're unsure, click the <strong>"Hint"</strong> button. First, select the cell where you want the hint to appear by clicking it or moving your cursor there.</li>
+                <li>Once you’ve entered your guesses, click <strong>"Check It!"</strong> to see if your answer matches the original quote.</li>
+                <li>If you’d like to try decoding a different quote, click the <strong>"New Quote"</strong> button. This will replace the current encrypted quote with a fresh one, allowing you to start a new puzzle.</li>
+            </ol>
+        
+            <p><strong>Tips for Decoding:</strong></p>
+            <ul>
+                <li>Identify <strong>short words</strong>: Words like "THE," "AND," and "IS" are often present. Guessing these can give you clues to other letters.</li>
+                <li>In a Caesar cipher, each letter shifts by the same number. Try shifting all letters forward or backward to see if words start to make sense!</li>
+            </ul>
+        
+            <button id="close-instructions">Close</button>
+        </div>
+        
+        
         <div id="clue"></div>
+        <div id="timer" style="float: right;" class="timer"><strong>Timer:</strong> 05:00</div>
         <div id="encoded-quote" class="encoded-quote-container"></div>
         <button id="hint-btn">Hint</button>
-        <button id="submit-btn">Submit</button>
+        <button id="submit-btn">Check It!</button>
         <button id="new-quote-btn">New Quote</button>
+        <button id="reveal-answer-btn">Reveal Answer</button>
         <div id="result"></div>
     </div>
     
