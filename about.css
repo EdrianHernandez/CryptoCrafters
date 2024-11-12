@@ -83,7 +83,10 @@ body {
 }
 
 .nav-links a:hover {
-    color: #00d4ff; /* Change color on hover */
+    color: #333; /* Change color on hover */
+    background-color: #1ab0ce;
+    border-radius: 8px;
+    transform: scale(1.02);
 }
 
 @keyframes fadeIn {
