@@ -3,111 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100% JQuery, Open-Source Crossword Puzzle Generator and Game</title>
-    <link type="text/css" rel="stylesheet" href="crossword.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="crossword.js"></script>
+    <title>Crossword Puzzle</title>
+    <link rel="stylesheet" href="crossword.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Adding Font Awesome -->
 </head>
 <body>
     <header>
-        <h2>Crossword Puzzle</h2> <!-- Title -->
+        <h1>Crossword Puzzle</h1> <!-- Title -->
         <a href="home.html" id="back-button" aria-label="Back">
             <i class="fas fa-arrow-left"></i>
         </a>
         <button id="help-btn" class="help-btn">❓</button> <!-- Help Button -->
     </header>
 
-    <div class="crossword-container">
-        <div id="crossword-grid">
-            <div id="root" class="root"></div>
+    <div id="container">
+        <div id="crossword-container">  
+            <table id="crossword-grid"></table>
         </div>
-
-        <div class="clue-section">
-            <div class="clue-group">
-                <h4>Across</h4>
-                <div id="left-list" class="list-text"></div>
+        <div id="clues-container">
+            <div id="across-clues">
+                <h3>ACROSS</h3>
+                <ul id="across-list"></ul>
             </div>
-            <div class="clue-group">
-                <h4>Down</h4>
-                <div id="right-list" class="list-text"></div>
+            <div id="down-clues">
+                <h3>DOWN</h3>
+                <ul id="down-list"></ul>
             </div>
+            <button id="check-answer-button" onclick="checkAllAnswers()">Check Answer</button>
+            <button id="clear-grid-button" onclick="clearGrid()">Clear Answer</button>
         </div>
     </div>
 
-    <!-- Instructions Popup -->
-    <div id="instructions-popup" class="instructions-popup">
-        <h3>How to Play Crossword</h3>
-        <p><strong>Objective:</strong> Solve the crossword puzzle by filling in the correct words.</p>
+    <!-- Instruction Container (hidden by default) -->
+    <div id="instruction-container" class="instruction-container" style="display: none;">
+        <h2 id="Intruction-title">How to Play Crossword Puzzle</h2>
+        
+        <p><strong>Objective:</strong> Fill in the crossword grid by entering the correct letters for each word based on the given clues.</p>
         
         <p><strong>Steps to Play:</strong></p>
         <ol>
-            <li>Click on a clue from the "Across" or "Down" sections. This will highlight the corresponding word in the puzzle.</li>
-            <li>An answer form will pop up, allowing you to type your answer in the boxes provided.</li>
-            <li>Type your answer in the provided input boxes. You can only enter one letter per box.</li>
-            <li>Press <strong>Enter</strong> to check your answer.</li>
-            <li>If you need help, you can use the <strong>"Reveal Answer"</strong> button to see the correct answer for that clue.</li>
-            <li>Click <strong>"Cancel"</strong> to close the answer form without submitting your answer.</li>
+            <li>Use the clues provided on the side to fill in the crossword grid.</li>
+            <li>Each word is placed either <strong>across</strong> (left to right) or <strong>down</strong> (top to bottom).</li>
+            <li>Click on the white cells in the grid to start typing the word letters.</li>
+            <li>Click <strong>"Check Answer"</strong> to see how well you’re doing. Correct letters will turn <span style="color: green; font-weight: bold;">green</span>, and incorrect letters will turn <span style="color: red; font-weight: bold;">red</span>.</li>
+            <li>If you'd like to start over, click the <strong>"Clear Grid"</strong> button to reset the puzzle.</li>
         </ol>
         
         <p><strong>Tips for Solving:</strong></p>
         <ul>
-            <li>Look for common letters and patterns in the puzzle.</li>
-            <li>Pay attention to the word lengths provided in the clues.</li>
-            <li>Guessing letters based on your knowledge can help fill in more squares.</li>
-            <li>Take breaks if you get stuck—sometimes a fresh mind helps!</li>
+            <li><strong>Start with easy clues</strong>: Look for shorter words or words that you already know.</li>
+            <li><strong>Use the numbers</strong>: Each clue corresponds to a number on the grid. Start filling in the first letters of each word using the numbered hints.</li>
+            <li><strong>Cross-check</strong>: Once you’ve filled in a word, check its intersections with other words to help complete the puzzle.</li>
+            <li><strong>Take your time</strong>: There’s no rush. Take your time to figure out the clues and enjoy solving the puzzle!</li>
         </ul>
-
-        <button id="close-instructions">Close</button>
+        
+        <button id="close-instruction-btn">Close</button>
     </div>
-
-    <div id="popup-container" class="hidden">
-        <div id="answer-form">
-            <div class="short-margin">
-                <p id="position-and-clue"></p>
-                <p>Answer: <input id="solution-answer" type="text" size="40"></p>
-                <p id="answer-results" class="hidden"></p>
-                <p>
-                    <input type="button" id="cancel-button" value="Cancel">
-                    <input type="button" id="answer-button" value="Answer">
-                    <input type="button" id="reveal-answer-button" value="Reveal Answer">
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var puzzlewords = [
-                ['ALGORITHM', 'Step-by-step problem-solving method'],
-                ['DATABASE', 'Organized collection of data'],
-                ['ARRAY', 'Collection of items in memory'],
-                ['CLOUD', 'Networked storage and computing service'],
-                ['SECURE', 'Protected from unauthorized access'],
-                ['NETWORK', 'Interconnected system of computers'],
-                ['VARIABLE', 'Named data storage in programming'],
-                ['INHERIT', 'Passing properties in object-oriented programming'],
-                ['FUNCTION', 'Block of code that performs a task'],
-                ['BINARY', 'Base-2 number system'],
-                ['COMPILE', 'Convert code into executable form'],
-                ['OPERATOR', 'Symbol that performs operations in code'],
-                ['RECURSION', 'Function that calls itself'],
-                ['VIRTUAL', 'Exists in software rather than physically'],
-                ['ENCRYPTION', 'Process of securing data'],
-                ['BACKEND', 'Part of an app that handles data and logic']
-            ];
-            crosswordPuzzle(puzzlewords);
-
-            // Show instructions popup when help button is clicked
-            $('#help-btn').on('click', function() {
-                $('#instructions-popup').show();
-            });
-
-            // Close popup when the close button is clicked
-            $('#close-instructions').on('click', function() {
-                $('#instructions-popup').hide();
-            });
-        });
-    </script>
+    
+    <script src="crossword.js"></script>
 </body>
 </html>
