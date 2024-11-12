@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography Overview</title>
+    <link rel="stylesheet" href="learning.css"> <!-- Link to your CSS file -->
+    <link rel="icon" href="icons/web-logo.png" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Toggle navigation menu
+            $('#burger-menu').click(function() {
+                $('.nav-widget').toggleClass('active');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="burger-menu" class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    
+    <nav class="nav-widget">
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="learning.html">Learn</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header-content">
+            <div class="icon-container">
+                <!-- Replace 'your-3d-icon.png' with the actual path to your 3D icon image -->
+                <img src="icons/crypto-logo.png" alt="3D Icon" class="three-d-icon" />
+            </div>
+            <div class="text-content">
+                <h1>Cryptography</h1>
+                <p>Cryptography is the practice and study of techniques for securing communication and information. It ensures the confidentiality, integrity, and authenticity of data.</p>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div id="how-cryptography-works" class="content-container">
+                <h2>How Cryptography Works?</h2>
+                <p>Cryptography works by transforming information into a secure format that is unreadable without a specific key. This transformation ensures that even if data is intercepted, it remains confidential.</p>
+                <p>The Caesar Cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down or up the alphabet.</p>
+            </div>
+        
+            <div class="cipher-section content-container">
+                <h2>Caesar Cipher</h2>
+                <label for="shift">Shift:</label>
+                <input type="number" id="shift" placeholder="Enter shift value">
+                <label for="plaintext">Plaintext:</label>
+                <input type="text" id="plaintext" placeholder="Enter text">
+                <button id="encryptBtn">Encrypt</button>
+                <p>Encrypted Text: <span id="encryptedText"></span></p>
+            </div>
+        </div>
+        
+        <div class="vs-container">
+            <h2 id="vs">Cryptography Vs. Cryptanalysis</h2>
+            <div class="flex-container">
+                <div class="cryptography-container">
+                    <h3>Cryptography</h3>
+                    <p>Cryptography is the art of creating secure communication, ensuring that data is protected from unauthorized access.</p>
+                </div>
+                <div class="cryptanalysis-container">
+                    <h3>Cryptanalysis</h3>
+                    <p>Cryptanalysis is the art of breaking secure communications to understand the encrypted data without the key.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="terms-container">
+            <h2 id="terms-heading">Terms in Cryptography</h2>
+        
+            <div id="plaintext-container" class="term-container">
+                <h3 class="term-title">Plaintext</h3>
+                <p class="term-description"><strong>original readable message or data.</strong></p>
+                <p class="term-example"><em>Example:</em> <span style="color: #ffcc00;">"Hello World"</span></p>
+            </div>
+            
+            <div id="ciphertext-container" class="term-container">
+                <h3 class="term-title">Ciphertext</h3>
+                <p class="term-description"><strong>encrypted output that is not readable without decryption.</strong></p>
+                <p class="term-example"><em>Example:</em> <span style="color: #ffcc00;">"U2FsdGVkX19/2sJ7a7Z4Nw=="</span></p>
+            </div>
+            
+            <div id="encryption-container" class="term-container">
+                <h3 class="term-title">Encryption</h3>
+                <p class="term-description"><strong>process of converting plaintext into ciphertext using an algorithm and a key.</strong></p>
+                <p class="term-example"><em>Example:</em> <span style="color: #ffcc00;">AES encryption.</span></p>
+            </div>
+            
+            <div id="decryption-container" class="term-container">
+                <h3 class="term-title">Decryption</h3>
+                <p class="term-description"><strong>process of converting ciphertext back into plaintext using a key.</strong></p>
+                <p class="term-example"><em>Example:</em> <span style="color: #ffcc00;">Using the same AES key to get back the original message.</span></p>
+            </div>
+            
+        </div>
+
+        <div class="types-container">
+            <h2 id="type-headings">Types of Cryptography</h2>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <div class="card">
+                        <div class="card-front">
+                            <img src="icons/Symmetric-Key.png" alt="Symmetric-Key" class="card-icon">
+                            <h2 class="types-title">Symmetric-Key Cryptography</h2>
+                        </div>
+                        <div class="card-back">
+                            <p class="card-description">Uses the same key for both encryption and decryption.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-item">
+                    <div class="card">
+                        <div class="card-front">
+                            <img src="icons/Asymmetric-Key.png" alt="Asymmetric-Key" class="card-icon">
+                            <h2 class="types-title">Asymmetric-Key Cryptography</h2>
+                        </div>
+                        <div class="card-back">
+                            <p class="card-description">Uses a pair of keys, one for encryption and a different one for decryption.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-item">
+                    <div class="card">
+                        <div class="card-front">
+                            <img src="icons/hash.png" id="hash-icon" alt="Hash Functions" class="card-icon">
+                            <h2 class="types-title">Hash Functions</h2>
+                        </div>
+                        <div class="card-back">
+                            <p class="card-description">Converts input data of any size to a fixed-size string, which is typically a hash value.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-item">
+                    <div class="card">
+                        <div class="card-front">
+                            <img src="icons/stream-icon.png" alt="Stream Ciphers" class="card-icon">
+                            <h2 class="types-title">Stream Ciphers</h2>
+                        </div>
+                        <div class="card-back">
+                            <p class="card-description">Encrypts data one bit or byte at a time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-item">
+                    <div class="card">
+                        <div class="card-front">
+                            <img src="icons/block-icon.png" alt="Block Ciphers" class="card-icon">
+                            <h2 class="types-title">Block Ciphers</h2>
+                        </div>
+                        <div class="card-back">
+                            <p class="card-description">Encrypts data in fixed-size blocks, typically 64 or 128 bits at a time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="appligoal-container">
+            <div class="application-container">
+                <h2>Application of Cryptography</h2>
+                <p>Cryptography is widely used in various applications such as securing online transactions, protecting sensitive information, and ensuring secure communications over the internet.</p>
+            </div>
+        
+            <div class="goals-container">
+                <h2>Goals of Cryptography</h2>
+                <p>The primary goals of cryptography include ensuring confidentiality, integrity, authentication, and non-repudiation of information.</p>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="learning.js"></script> <!-- Link to your JS file -->
+</body>
+</html>
