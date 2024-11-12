@@ -9,7 +9,7 @@ body {
     color: #ccc; /* Light text for readability */
 }
 
-/* Burger menu styles */
+/* Burger Menu Styles */
 .burger {
     position: fixed;
     top: 30px;
@@ -21,7 +21,7 @@ body {
 .burger .line {
     width: 30px;
     height: 4px;
-    background-color: white; /* Dark color for visibility */
+    background-color: white;
     margin: 6px 0;
     transition: all 0.3s;
 }
@@ -55,7 +55,7 @@ body {
 .nav-links ul {
     list-style: none;
     padding: 0;
-    width: 100%; /* Ensure ul takes full width */
+    width: 100%; /* Ensures the ul takes the full width */
     text-align: center; /* Center align the text */
 }
 
@@ -69,11 +69,14 @@ body {
     font-size: 1.5em;
     transition: color 0.3s;
     display: inline-block; /* Allow block-level centering */
-    width: 100%; /* Ensure anchor takes full width of li */
+    width: 100%; /* Ensure the anchor takes the full width of li */
 }
 
 .nav-links a:hover {
-    color: #00d4ff; /* Change color on hover */
+    color: #333; /* Change color on hover */
+    background-color: #1ab0ce;
+    border-radius: 8px;
+    transform: scale(1.02);
 }
 
 /* Container styles */
@@ -107,7 +110,6 @@ body {
     display: flex; /* Enables flexbox layout */
     flex-direction: column; /* Arranges children in a column */
     margin-top: 80px;
-    justify-content: center; /* Centers children vertically */
     min-height: 300px; /* Adjust height as needed */
     transition: transform 0.3s ease;
 }
@@ -158,6 +160,7 @@ p {
 
 .right {
     text-align: left; /* Align text to the left for the right column */
+    justify-content: center; /* Centers children vertically */
 }
 
 /* Form styles */
@@ -231,8 +234,8 @@ p {
 }
 
 button {
-    background-color: #007bff; /* Primary button color */
-    color: white; /* Text color */
+    background-color: #ffcc00; /* Primary button color */
+    color: #333; /* Text color */
     border: none; /* Remove default border */
     border-radius: 4px; /* Rounded corners */
     padding: 10px 20px; /* Padding for button */
@@ -313,6 +316,10 @@ button:hover {
         margin-top: 10px; /* Reduce top margin for mobile */
         margin-left: 0; /* Remove left margin */
         margin-right: 0; /* Remove right margin */
+    }
+
+    .left {
+        justify-content: center;
     }
 
     .form-group {
