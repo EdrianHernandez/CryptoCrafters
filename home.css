@@ -28,7 +28,7 @@ body {
 .container-wrapper::before {
     content: '';
     position: absolute;
-    top: 165px; /* Adjusted to move down slightly */
+    top: 183px; /* Adjusted to move down slightly */
     right: 900px; /* Position for juggle.gif */
     bottom: 0;
     width: 40%; /* Adjust width for overlay */
@@ -161,10 +161,9 @@ button:active .icon-3d {
 /* Burger Menu Styles */
 .burger {
     position: fixed;
-    display: inline-block;
     top: 30px;
     left: 30px;
-    z-index: 1000;
+    z-index: 1000; /* Ensure the burger menu is on top */
     cursor: pointer;
 }
 
@@ -181,20 +180,21 @@ button:active .icon-3d {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
+    width: 250px; /* Width of the navigation */
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.8);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* Hide off-screen by default */
     transition: transform 0.3s ease;
-    z-index: 900;
+    z-index: 900; /* Behind the burger menu */
 }
 
 .nav-widget.active {
-    transform: translateX(0);
+    transform: translateX(0); /* Slide in */
 }
 
 .nav-links {
+    align-items: center;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -204,79 +204,60 @@ button:active .icon-3d {
 .nav-links ul {
     list-style: none;
     padding: 0;
+    width: 100%; /* Ensures the ul takes the full width */
+    text-align: center; /* Center align the text */
 }
 
 .nav-links li {
-    font-family: 'Roboto', sans-serif; /* Changed font */
-    margin: 15px 0;
-    font-size: 1.5em;
+    margin: 15px 0; /* Space between menu items */
 }
 
-/* Base link styling */
 .nav-links a {
     text-decoration: none;
     color: white;
-    font-size: 1.3em;
-    transition: color 0.3s, background-color 0.3s;
-    padding: 10px 15px;
-    border-radius: 8px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+    display: inline-block; /* Allow block-level centering */
+    width: 100%; /* Ensure the anchor takes the full width of li */
 }
 
-/* Hover effect for all items */
 .nav-links a:hover {
-    color: #00d4ff;
+    color: #333; /* Change color on hover */
+    background-color: #1ab0ce;
+    border-radius: 8px;
+    transform: scale(1.02);
 }
 
-/* Styling for active link */
-/* Add this to ensure the active link is styled */
-/* Styling for active link */
-.nav-links li a.active {
-    color: #00d4ff;  /* Active color */
-    font-weight: bold;  /* Bold for visibility */
-    background-color: rgba(255, 255, 255, 0.2);  /* Background to highlight active */
-    border-radius: 5px;
-}
-
-/* Optional hover effect on active item */
-.nav-links li a.active:hover {
-    background-color: #009fb0;
-    color: white;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Mobile S (480px) */
+@media (max-width: 480px) {
     h1 {
-        font-size: 2.5em; /* Smaller title size */
-        margin-bottom: 10px; /* Less margin */
-    }
-
-    .container {
-        padding: 10px; /* Less padding */
-    }
-
-    .icon-3d{
-        width: 140px;
-        height: 140px;
-    }
-
-    p {
-        font-size: 1em; /* Smaller paragraph text */
+        font-size: 2em; /* Even smaller title size */
+        margin-top: 100px;
     }
 
     button {
-        width: 200px; /* Smaller button width */
-        height: 200px; /* Smaller button height */
-        font-size: 1.2em; /* Smaller font size */
+        width: 150px; /* Even smaller button width */
+        height: 150px; /* Even smaller button height */
+        font-size: 1em; /* Smaller font size */
+    }
+
+    .icon-3d {
+        width: 110px;
+        height: 110px;
     }
 
     button span {
-        font-size: 1.2em; /* Adjust span font size */
+        font-size: 1em; /* Adjust span font size */
+    }
+
+    p {
+        font-size: 0.9em; /* Smaller paragraph text */
     }
 
     .container-wrapper::before {
         top: 400px; /* Adjust top position */
-        right: 120px; /* Adjust position for smaller screens */
-        width: 80%; /* Adjust width */
+        right: 170px; /* Adjust position for smaller screens */
+        width: 70%; /* Adjust width */
         height: 50%; /* Adjust height */
         background-size: 100% 112%;
     }
@@ -296,7 +277,7 @@ button:active .icon-3d {
     }
 
     .nav-widget {
-        width: 200px; /* Smaller nav width */
+        width: 16   0px; /* Smaller nav width */
     }
 
     .nav-links a {
@@ -304,8 +285,8 @@ button:active .icon-3d {
     }
 }
 
-/* Further adjustments for very small screens */
-@media (max-width: 480px) {
+/* Mobile M (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
     h1 {
         font-size: 2em; /* Even smaller title size */
     }
@@ -340,5 +321,101 @@ button:active .icon-3d {
         height: 50%; /* Adjust height */
         background-size: 100% 112%;
     }
+
+    .burger {
+        top: 20px; /* Adjust burger position */
+        left: 20px; /* Adjust burger position */
+    }
+
+    .nav-widget {
+        width: 180px; /* Smaller nav width */
+    }
+
+    .nav-links a {
+        font-size: 1.2em; /* Smaller nav link size */
+    }
 }
 
+/* Mobile L (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px){
+    h1 {
+        font-size: 2.5em; /* Smaller title size */
+        margin-bottom: 10px; /* Less margin */
+    }
+
+    .container {
+        padding: 10px; /* Less padding */
+    }
+
+    .icon-3d{
+        width: 140px;
+        height: 140px;
+    }
+
+    p {
+        font-size: 1em; /* Smaller paragraph text */
+    }
+
+    button {
+        width: 200px; /* Smaller button width */
+        height: 200px; /* Smaller button height */
+        font-size: 1.2em; /* Smaller font size */
+    }
+
+    button span {
+        font-size: 1.2em; /* Adjust span font size */
+    }
+
+    .container-wrapper::before {
+        top: 300px; /* Adjust top position */
+        right: 480px; /* Adjust position for smaller screens */
+        width: 50%; /* Adjust width */
+        height: 50%; /* Adjust height */
+        background-size: 100% 112%;
+    }
+
+    .container-wrapper::after {
+        bottom: 350px; /* Adjust bottom position */
+        left: 80%; /* Center rotating.gif */
+        transform: translateX(-50%); /* Center align */
+        width: 50%; /* Adjust width */
+        height: 50%; /* Adjust height */
+        background-size: 100% 112%;
+    }
+
+    .burger {
+        top: 20px; /* Adjust burger position */
+        left: 20px; /* Adjust burger position */
+    }
+
+    .nav-widget {
+        width: 200px; /* Smaller nav width */
+    }
+
+    .nav-links a {
+        font-size: 1.2em; /* Smaller nav link size */
+    }
+}
+
+/* Tablet (1025px - 1200px) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+    body {
+        font-size: 20px;
+        padding: 25px;
+    }
+    .container {
+        padding: 25px;
+        max-width: 80%;
+    }
+    h1 {
+        font-size: 3.5em;
+    }
+    button {
+        width: 240px;
+        height: 240px;
+    }
+    .icon-3d {
+        width: 160px;
+        height: 160px;
+    }
+}
