@@ -1,4 +1,4 @@
-// 15x15 blank grid data (null = empty, 'B' = black cell)
+// 20x20 blank grid data (null = empty, 'B' = black cell)
 const gridData = Array.from({ length: 20 }, () => Array(20).fill(null));
 
 // Words and clues with position and orientation
@@ -20,6 +20,30 @@ const wordsAndClues = [
     { word: 'ENCRYPTION', clue: 'Process of securing data', row: 6, col: 10, direction: 'down' },
     { word: 'BACKEND', clue: 'Part of an app that handles data and logic', row: 17, col: 7, direction: 'across' }
 ];
+
+// Function to encrypt a word using a random Caesar cipher shift
+function encryptWithRandomShift(word) {
+    const shift = Math.floor(Math.random() * 25) + 1; // Random shift between 1 and 25
+    const encryptedWord = word.split('').map(char => {
+        const charCode = char.charCodeAt(0);
+        // Check if character is uppercase
+        if (charCode >= 65 && charCode <= 90) {
+            return String.fromCharCode(((charCode - 65 + shift) % 26) + 65);
+        }
+        // Check if character is lowercase
+        else if (charCode >= 97 && charCode <= 122) {
+            return String.fromCharCode(((charCode - 97 + shift) % 26) + 97);
+        }
+        return char; // Non-alphabetic characters remain the same
+    }).join('');
+    return { encryptedWord, shift };
+}
+
+// Encrypt clues and apply styling for encrypted words in blue bold
+wordsAndClues.forEach(item => {
+    const { encryptedWord, shift } = encryptWithRandomShift(item.word);
+    item.clue = `<span style="color: #1f1e51; font-weight: bold;">${encryptedWord}</span> - ${item.clue}`;
+});
 
 // Function to place words in the grid
 function placeWordsInGrid() {
@@ -90,10 +114,10 @@ function checkAnswers() {
             const userInput = input.value.toUpperCase();
 
             if (userInput === correctLetter) {
-                input.style.backgroundColor = 'green';
-                input.style.color = 'white';
+                input.style.backgroundColor = '#21f821';
+                input.style.color = '#181818';
             } else {
-                input.style.backgroundColor = 'red';
+                input.style.backgroundColor = '#e02020';
                 input.style.color = 'white';
             }
         }
@@ -101,16 +125,30 @@ function checkAnswers() {
 }
 
 function clearGrid() {
-    // Select all input elements within the crossword grid
+    const inputs = document.querySelectorAll('#crossword-grid input');
+    inputs.forEach(input => {
+        input.value = '';
+        input.style.backgroundColor = '';
+        input.style.borderColor = '';
+        input.classList.remove('correct', 'incorrect');
+    });
+}
+
+// Function to reveal all correct answers in the grid
+function revealAnswers() {
     const inputs = document.querySelectorAll('#crossword-grid input');
     
-    // Loop through each input element and reset their values and styles
     inputs.forEach(input => {
-        input.value = ''; // Clear the value
-        input.style.backgroundColor = ''; // Reset background color
-        input.style.borderColor = '';
-		input.style.color = ''; // Reset border color (if applicable)
-        input.classList.remove('correct', 'incorrect'); // Remove any classes used to mark answers
+        const row = parseInt(input.dataset.row);
+        const col = parseInt(input.dataset.col);
+        const correctLetter = gridData[row][col];
+
+        // Only fill the cell if there's a letter in the original data
+        if (correctLetter) {
+            input.value = correctLetter;
+            input.style.backgroundColor = '#21f821';
+                input.style.color = '#181818';
+        }
     });
 }
 
@@ -131,7 +169,7 @@ const acrossList = document.getElementById('across-list');
 const downList = document.getElementById('down-list');
 wordsAndClues.forEach((item, index) => {
     const listItem = document.createElement('li');
-    listItem.textContent = `${index + 1}. ${item.clue}`;
+    listItem.innerHTML = `${index + 1}. ${item.clue}`;
     if (item.direction === 'across') {
         acrossList.appendChild(listItem);
     } else {
@@ -142,13 +180,11 @@ wordsAndClues.forEach((item, index) => {
 // Add a cell number indicator for the first letter of each word
 function addCellNumberIndicators() {
     wordsAndClues.forEach(({ word, row, col, direction }, index) => {
-        // Find the corresponding table cell (td) where the word starts
         const td = crosswordGrid.rows[row].cells[col];
         if (td && !td.classList.contains('black-cell')) {
-            // Create a number label to place in the top-left corner
             const label = document.createElement('div');
             label.className = 'crossword-grid-cell-number';
-            label.textContent = (index + 1).toString(); // Use clue number
+            label.textContent = (index + 1).toString();
             td.appendChild(label);
         }
     });
@@ -162,12 +198,10 @@ const helpButton = document.getElementById('help-btn');
 const instructionContainer = document.getElementById('instruction-container');
 const closeInstructionButton = document.getElementById('close-instruction-btn');
 
-// Show the instruction container when the help button is clicked
 helpButton.addEventListener('click', () => {
-    instructionContainer.style.display = 'block';  // Show the instructions
+    instructionContainer.style.display = 'block';
 });
 
-// Close the instruction container when the close button is clicked
 closeInstructionButton.addEventListener('click', () => {
-    instructionContainer.style.display = 'none';  // Hide the instructions
+    instructionContainer.style.display = 'none';
 });
