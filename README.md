@@ -14,6 +14,6 @@
 
 ###
 
-<p align="left">Cryptocrafters is a website created by a dedicated computer science student, blending education and fun through interactive cryptography game and crossword puzzle.</p>
+<p align="left">Cryptocrafters is a website created by dedicated computer science students, blending education and fun through interactive cryptography game and crossword puzzle.</p>
 
 ###
