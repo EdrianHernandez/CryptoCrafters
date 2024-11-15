@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crossword Puzzle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cryptogram Game</title>
     <link rel="stylesheet" href="crossword.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Adding Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="icons/web-logo.png" type="image/png">
 </head>
 <body>
     <header>
@@ -31,6 +32,7 @@
             </div>
             <button id="check-answer-button" onclick="checkAllAnswers()">Check Answer</button>
             <button id="clear-grid-button" onclick="clearGrid()">Clear Answer</button>
+            <button id="reveal-answer-button" onclick="revealAnswers()">Reveal Answer</button>
         </div>
     </div>
 
@@ -47,8 +49,16 @@
             <li>Click on the white cells in the grid to start typing the word letters.</li>
             <li>Click <strong>"Check Answer"</strong> to see how well you’re doing. Correct letters will turn <span style="color: green; font-weight: bold;">green</span>, and incorrect letters will turn <span style="color: red; font-weight: bold;">red</span>.</li>
             <li>If you'd like to start over, click the <strong>"Clear Grid"</strong> button to reset the puzzle.</li>
+            <li>If you're stuck, you can use the <strong>"Reveal Answer"</strong> button to show the correct letters for a specific word. This will reveal the word in the grid to help you move forward.</li>
         </ol>
         
+        <p><strong>Special Feature: Encrypted Clues</strong></p>
+        <ul>
+            <li>Some clues include an encrypted version of the word using a random Caesar cipher. The word is shifted by a random number, making it appear in a coded form.</li>
+            <li>The encrypted word is displayed in <span style="color: #1f1e51; font-weight: bold;">BLUE BOLD</span> text, along with the shift value used. For example, if the shift is 3, each letter in the word has been shifted 3 letters forward in the alphabet.</li>
+            <li>Use this encrypted word along with the clue to help figure out the actual word to enter in the grid.</li>
+        </ul>
+    
         <p><strong>Tips for Solving:</strong></p>
         <ul>
             <li><strong>Start with easy clues</strong>: Look for shorter words or words that you already know.</li>
@@ -58,8 +68,10 @@
         </ul>
         
         <button id="close-instruction-btn">Close</button>
+        <button id="learn-more-btn" onclick="window.location.href='learning.html'">Learn More</button>
     </div>
     
-    <script src="crossword.js"></script>
+    
+    <script src="scripts.js"></script>
 </body>
 </html>
