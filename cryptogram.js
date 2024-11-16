@@ -23,7 +23,7 @@ let focusedInputField = null; // Track the current input field in focus
 let hintsUsed = 0; // Track the number of hints used
 const maxHints = 2;
 let timerInterval;
-let timeLeft = 300; // Timer set for 5 minutes (300 seconds)
+let timeLeft = 600; // Timer set for 5 minutes (300 seconds)
 
 // Load sound files
 const correctSound = new Audio('sounds/correct.mp3');
@@ -37,7 +37,8 @@ function encodeQuote(quote) {
         if (char.match(/[a-z]/i)) {
             let code = char.charCodeAt();
             let base = char.toLowerCase() === char ? 97 : 65;
-            return String.fromCharCode(((code - base + shift) % 26) + base).toUpperCase(); // Convert to uppercase
+            let randomShift = Math.floor(Math.random() * 25) + 1; // Random shift between 1 and 25
+            return String.fromCharCode(((code - base + randomShift) % 26) + base).toUpperCase(); // Convert to uppercase
         }
         return char; // Return punctuation as is
     }).join('');
@@ -238,7 +239,7 @@ function startTimer() {
 
 function resetTimer() {
     clearInterval(timerInterval);
-    timeLeft = 300; // Reset time left to 5 minutes
+    timeLeft = 600; // Reset time left to 5 minutes
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
     document.getElementById('timer').innerHTML = `<strong>Timer:</strong> ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`; // Initialize timer display
