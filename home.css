@@ -28,7 +28,7 @@ body {
 .container-wrapper::before {
     content: '';
     position: absolute;
-    top: 183px; /* Adjusted to move down slightly */
+    top: 170px; /* Adjusted to move down slightly */
     right: 900px; /* Position for juggle.gif */
     bottom: 0;
     width: 40%; /* Adjust width for overlay */
@@ -43,7 +43,7 @@ body {
 .container-wrapper::after {
     content: '';
     position: absolute;
-    left: 800px; /* Position for rotating.gif to the right side */
+    left: 780px; /* Position for rotating.gif to the right side */
     bottom: 250px;
     width: 40%; /* Adjust width for overlay */
     height: 80%; /* Adjust height to crop the bottom */
@@ -94,7 +94,7 @@ button {
     padding: 0;
     margin: 15px;
     width: 250px;
-    height: 250px;
+    height: 240px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -228,194 +228,162 @@ button:active .icon-3d {
     transform: scale(1.02);
 }
 
-/* Mobile S (480px) */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2em; /* Even smaller title size */
-        margin-top: 100px;
+/* Auth buttons container */
+.auth-buttons {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+}
+
+/* Auth button styling */
+.auth-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons button:hover {
+    background-color: rgba(0, 212, 255, 0.8);
+}
+
+/* Base styles already provided */
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    body{
+        height: 100vh;
+    }
+    /* Reduce container padding for narrower screens */
+    .container-wrapper {
+        padding: 10px;
     }
 
+    /* Scale down button sizes for medium screens */
     button {
-        width: 150px; /* Even smaller button width */
-        height: 150px; /* Even smaller button height */
-        font-size: 1em; /* Smaller font size */
+        width: 200px;
+        height: 200px;
     }
 
-    .icon-3d {
-        width: 110px;
-        height: 110px;
-    }
-
-    button span {
-        font-size: 1em; /* Adjust span font size */
-    }
-
-    p {
-        font-size: 0.9em; /* Smaller paragraph text */
-    }
-
-    .container-wrapper::before {
-        top: 400px; /* Adjust top position */
-        right: 170px; /* Adjust position for smaller screens */
-        width: 70%; /* Adjust width */
-        height: 50%; /* Adjust height */
-        background-size: 100% 112%;
-    }
-
+    /* Adjust positions of GIF overlays */
+    .container-wrapper::before,
     .container-wrapper::after {
-        bottom: 400px; /* Adjust bottom position */
-        left: 80%; /* Center rotating.gif */
-        transform: translateX(-50%); /* Center align */
-        width: 80%; /* Adjust width */
-        height: 50%; /* Adjust height */
-        background-size: 100% 112%;
+        display: none; /* Remove background gifs for mobile */
     }
 
-    .burger {
-        top: 20px; /* Adjust burger position */
-        left: 20px; /* Adjust burger position */
+    /* Scale down heading size */
+    h1 {
+        font-size: 3em;
     }
 
+    /* Adjust navigation widget width */
     .nav-widget {
-        width: 16   0px; /* Smaller nav width */
+        width: 200px;
     }
 
+    /* Font size for navigation links */
     .nav-links a {
-        font-size: 1.2em; /* Smaller nav link size */
+        font-size: 1.2em;
     }
 }
 
-/* Mobile M (481px - 767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-    h1 {
-        font-size: 2em; /* Even smaller title size */
-    }
-
-    button {
-        width: 180px; /* Even smaller button width */
-        height: 180px; /* Even smaller button height */
-        font-size: 1em; /* Smaller font size */
-    }
-
-    button span {
-        font-size: 1em; /* Adjust span font size */
-    }
-
-    p {
-        font-size: 0.9em; /* Smaller paragraph text */
-    }
-
-    .container-wrapper::before {
-        top: 400px; /* Adjust top position */
-        right: 120px; /* Adjust position for smaller screens */
-        width: 80%; /* Adjust width */
-        height: 50%; /* Adjust height */
-        background-size: 100% 112%;
-    }
-
-    .container-wrapper::after {
-        bottom: 400px; /* Adjust bottom position */
-        left: 80%; /* Center rotating.gif */
-        transform: translateX(-50%); /* Center align */
-        width: 80%; /* Adjust width */
-        height: 50%; /* Adjust height */
-        background-size: 100% 112%;
-    }
-
-    .burger {
-        top: 20px; /* Adjust burger position */
-        left: 20px; /* Adjust burger position */
-    }
-
-    .nav-widget {
-        width: 180px; /* Smaller nav width */
-    }
-
-    .nav-links a {
-        font-size: 1.2em; /* Smaller nav link size */
-    }
-}
-
-/* Mobile L (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px){
-    h1 {
-        font-size: 2.5em; /* Smaller title size */
-        margin-bottom: 10px; /* Less margin */
-    }
-
-    .container {
-        padding: 10px; /* Less padding */
-    }
-
-    .icon-3d{
-        width: 140px;
-        height: 140px;
-    }
-
-    p {
-        font-size: 1em; /* Smaller paragraph text */
-    }
-
-    button {
-        width: 200px; /* Smaller button width */
-        height: 200px; /* Smaller button height */
-        font-size: 1.2em; /* Smaller font size */
-    }
-
-    button span {
-        font-size: 1.2em; /* Adjust span font size */
-    }
-
-    .container-wrapper::before {
-        top: 300px; /* Adjust top position */
-        right: 480px; /* Adjust position for smaller screens */
-        width: 50%; /* Adjust width */
-        height: 50%; /* Adjust height */
-        background-size: 100% 112%;
-    }
-
-    .container-wrapper::after {
-        bottom: 350px; /* Adjust bottom position */
-        left: 80%; /* Center rotating.gif */
-        transform: translateX(-50%); /* Center align */
-        width: 50%; /* Adjust width */
-        height: 50%; /* Adjust height */
-        background-size: 100% 112%;
-    }
-
-    .burger {
-        top: 20px; /* Adjust burger position */
-        left: 20px; /* Adjust burger position */
-    }
-
-    .nav-widget {
-        width: 200px; /* Smaller nav width */
-    }
-
-    .nav-links a {
-        font-size: 1.2em; /* Smaller nav link size */
-    }
-}
-
-/* Tablet (1025px - 1200px) */
-@media (min-width: 1025px) and (max-width: 1200px) {
+@media (max-width: 768px) {
     body {
-        font-size: 20px;
-        padding: 25px;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
+
+    .container-wrapper {
+        flex-direction: column;
+        padding: 5px;
+        height: 100%;
+    }
+
+    /* Adjust main container height to fit without overflow */
     .container {
-        padding: 25px;
-        max-width: 80%;
+        padding: 10px;
+        max-width: 90%;
     }
-    h1 {
-        font-size: 3.5em;
-    }
+
+    /* Scale down button */
     button {
-        width: 240px;
-        height: 240px;
-    }
-    .icon-3d {
         width: 160px;
         height: 160px;
+        font-size: 1.2em;
+    }
+
+    .icon-3d {
+        width: 130px;
+        height: 130px;
+    }
+
+    .container-wrapper::before,
+    .container-wrapper::after {
+        display: none; /* Remove background gifs for mobile */
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin: 10px 0;
+    }
+
+    .auth-buttons button {
+        width: 80px;
+        height: 35px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-widget {
+        width: 50%;
+    }
+
+    .container-wrapper {
+        padding: 5px;
+        height: 100%;
+        justify-content: center;
+    }
+
+    button {
+        width: 140px;
+        height: 140px;
+        font-size: 1em;
+    }
+
+    .icon-3d {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 8px 0;
+    }
+
+    p {
+        font-size: 1em;
+        margin: 5px 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2em;
     }
 }
