@@ -1,4 +1,3 @@
-/* General styles */
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif; /* Ensure the same font is used */
@@ -276,66 +275,102 @@ button:hover {
     100% { background-position: 0% 50%; }
 }
 
-/* Media Queries for Responsive Design */
-/* Media Queries for Responsive Design */
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    /* Container and row adjustments */
+    .container {
+        padding: 20px 15px; /* Reduce padding for smaller screens */
+    }
+
+    /* Reduce font size in navigation links */
+    .nav-links a {
+        font-size: 1.3em;
+    }
+
+    /* Adjust column layout for two-column layout on smaller screens */
+    .row {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center; /* Center align the columns */
+    }
+}
+
 @media (max-width: 768px) {
+    /* Make burger menu larger for easier tap on small screens */
     .burger {
         top: 20px;
         left: 20px;
     }
-
-    .nav-widget {
-        width: 200px; /* Reduce width for mobile */
+    
+    .burger .line {
+        width: 25px;
+        height: 3px;
     }
 
-    .nav-links {
-        padding: 10px; /* Reduce padding */
-    }
-
-    .nav-links a {
-        font-size: 1.2em; /* Slightly smaller font size */
-    }
-
-    .container {
-        padding: 20px; /* Reduce padding */
-    }
-
-    .container::before {
-        top: 550px; /* Adjust top position */
-        width: 90%; /* Make the GIF take up more width */
-        height: 40%; /* Adjust height to maintain aspect ratio */
-        background-size: contain; /* Make sure the GIF scales well */
-        background-size: 100% 112%;
-    }
-
-    .row {
-        flex-direction: column; /* Stack columns on top of each other */
-    }
-
+    /* Adjust column for small screen view */
     .column {
-        margin-top: 10px; /* Reduce top margin for mobile */
-        margin-left: 0; /* Remove left margin */
-        margin-right: 0; /* Remove right margin */
+        margin-top: 50px;
+        margin-bottom: -180px;
+        padding: 15px; /* Add padding for breathing room */
     }
 
-    .left {
-        justify-content: center;
+    /* Adjust font sizes and layout */
+    h1 {
+        text-align: center;
+        font-size: 1.8em; /* Decrease font size for smaller screens */
     }
 
-    .form-group {
-        width: 100%; /* Ensure full width for inputs */
+    p {
+        text-align: center;
+        font-size: 1em; /* Decrease paragraph font size */
     }
 
-    .name-row {
-        flex-direction: column; /* Stack name fields vertically */
+    /* Navigation menu full-screen on mobile */
+    .nav-widget {
+        width: 50%;
     }
 
-    .name-group {
-        margin-right: 0; /* Remove margin for single column */
-        margin-bottom: 10px; /* Space below each field */
-    }
-
+    /* Button and form adjustments */
     button {
-        width: 100%; /* Full width for buttons */
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    .form-group input, .form-group textarea {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    /* Reduce the background image overlay */
+    .container::before {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Full width for smaller screens */
+    .container {
+        padding: 10px; /* Minimum padding for extra small screens */
+    }
+
+    /* Smaller font size for better readability */
+    h1 {
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    p {
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+    /* Reduce button size */
+    button {
+        font-size: 0.9em;
+        padding: 8px 10px;
+    }
+
+    /* Hide background overlay on extra small screens */
+    .container::before {
+        display: none;
     }
 }
