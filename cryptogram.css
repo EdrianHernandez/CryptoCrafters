@@ -62,7 +62,7 @@ body {
 }
 
 #back-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.3);
 }
 
 /* Encoded Quote Layout */
@@ -114,13 +114,13 @@ input[type="text"] {
 }
 
 input[type="text"]:hover {
-    background-color: #9099ce; 
+    background-color: #f5e835; 
     transform: translateY(-2px); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .hover-effect {
-    background-color: #9099ce;
+    background-color: #f5e835;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
@@ -193,6 +193,183 @@ button:active {
     animation: shake 0.5s ease;
 }
 
+/* Help Button Styling */
+.help-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+}
+
+/* Instructions Popup Styling */
+.instructions-popup {
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    padding: 15px; 
+    max-width: 95%; 
+    width: 90%; 
+    font-size: 14.5px; 
+    text-align: left;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    overflow: auto; 
+    z-index: 1000; 
+}
+
+/* Close Button Styling */
+#close-instructions {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#learn-more-btn {
+    position: fixed;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+#learn-more-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+/* Media Queries for Tablet and Larger Screens */
+@media (max-width: 1200px) {
+    .container {
+        margin: 30px;
+        padding: 20px;
+    }
+
+    #game-title {
+        font-size: 2.5em; 
+        margin-top: 60px; 
+    }
+
+    #timer {
+        font-size: 16px; 
+        padding: 6px 10px; 
+        margin-top: 15px; 
+    }
+
+    .encoded-quote-container {
+        margin: 60px 0;
+        justify-content: space-around;
+    }
+
+    .encoded-word {
+        margin: 0 8px;
+    }
+
+    input[type="text"] {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    button {
+        padding: 10px 14px;
+        font-size: 16px;
+    }
+
+    #result {
+        font-size: 18px;
+    }
+
+    #back-button {
+        font-size: 24px; 
+        top: 30px; 
+        left: 40px; 
+    }
+
+    .help-btn {
+        font-size: 24px; 
+    }
+
+    .instructions-popup {
+        padding: 20px; 
+        max-width: 80%; 
+        width: 70%; 
+        font-size: 16px; 
+    }
+}
+
+/* Media Queries for Small Tablets and Large Mobile Screens */
+@media (max-width: 768px) {
+    .container {
+        margin: 25px;
+        padding: 18px;
+    }
+
+    #game-title {
+        font-size: 2.2em; 
+        margin-top: 70px; 
+    }
+
+    #timer {
+        font-size: 15px; 
+        padding: 5px 9px; 
+        margin-top: 12px; 
+    }
+
+    .encoded-quote-container {
+        margin: 55px 0;
+        justify-content: center;
+    }
+
+    .encoded-word {
+        margin: 0 6px;
+    }
+
+    input[type="text"] {
+        width: 26px;
+        height: 26px;
+        font-size: 18px;
+    }
+
+    button {
+        padding: 9px 13px;
+        font-size: 15px;
+    }
+
+    #result {
+        font-size: 17px;
+    }
+
+    #back-button {
+        font-size: 22px; 
+        top: 35px; 
+        left: 35px; 
+    }
+
+    .help-btn {
+        font-size: 22px; 
+    }
+
+    .instructions-popup {
+        padding: 18px; 
+        max-width: 90%; 
+        width: 85%; 
+        font-size: 15px; 
+    }
+}
+
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 480px) {
     .container {
@@ -252,44 +429,4 @@ button:active {
         width: 90%; 
         font-size: 14px; 
     }
-}
-
-/* Help Button Styling */
-.help-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-}
-
-/* Instructions Popup Styling */
-.instructions-popup {
-    position: fixed; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    padding: 15px; 
-    max-width: 95%; 
-    width: 90%; 
-    font-size: 14.5px; 
-    text-align: left;
-    color: #333;
-    background-color: rgba(255, 255, 255, 0.9); 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-    overflow: auto; 
-    z-index: 1000; 
-}
-
-/* Close Button Styling */
-#close-instructions {
-    margin-top: 15px;
-    padding: 8px 16px;
-    cursor: pointer;
-    background-color: #ff5c5c;
-    color: white;
-    border: none;
-    border-radius: 5px;
 }
