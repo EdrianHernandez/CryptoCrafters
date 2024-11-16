@@ -7,6 +7,13 @@
     <link type="text/css" rel="stylesheet" href="contact.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+
+    <!-- Use the Firebase v9+ Modular SDK -->
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"></script> <!-- Firestore v11 -->
+
+    <script type="module" src="firebase.js"></script>  <!-- Added type="module" -->
+    <script type="module" src="contact.js"></script>   <!-- Added type="module" -->
     
     <script type="text/javascript">
         $(document).ready(function() {
@@ -41,7 +48,7 @@
         <div class="row">
             <div class="column left">
                 <h1>Contact Us</h1>
-                <p>We'd love to hear from you! Please fill out the form with you inquiry.</p>
+                <p>We'd love to hear from you! Please fill out the form with your inquiry.</p>
             </div>
             <div class="column right">
                 <div class="form-row" data-aos="fade-up">
