@@ -6,10 +6,11 @@
     <title>Cryptogram Game</title>
     <link rel="stylesheet" href="cryptogram.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="icons/web-logo.png" type="image/png">
 </head>
 <body>
     <div class="container">
-        <h1 id="game-title">Cryptogram Game</h1>
+        <h1 id="game-title">Cryptogram</h1>
 
         <a href="home.html" id="back-button" aria-label="Back">
             <i class="fas fa-arrow-left"></i>
@@ -42,11 +43,12 @@
             </ul>
         
             <button id="close-instructions">Close</button>
+            <button id="learn-more-btn" onclick="window.location.href='learning.html'">Learn More</button>
         </div>
         
         
         <div id="clue"></div>
-        <div id="timer" style="float: right;" class="timer"><strong>Timer:</strong> 05:00</div>
+        <div id="timer" style="float: right;" class="timer"><strong>Timer:</strong> 10:00</div>
         <div id="encoded-quote" class="encoded-quote-container"></div>
         <button id="hint-btn">Hint</button>
         <button id="submit-btn">Check It!</button>
