@@ -1,57 +1,80 @@
-import { auth, onAuthStateChanged } from './firebase.js';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoCrafters</title>
+    <link type="text/css" rel="stylesheet" href="home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="icons/web-logo.png" type="image/png">
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#cryptogram-game').click(function() {
+                $(this).addClass('button-clicked');
+                setTimeout(() => {
+                    window.location.href = 'cryptogram.html';
+                }, 500); 
+            });
 
-// Check if the user is logged in
-document.addEventListener('DOMContentLoaded', function() {
-    onAuthStateChanged(auth, (user) => {
-        if (!user) {
-            // Redirect to login if not authenticated
-            window.location.href = '/registerlogin.html';
-        } else {
-            // Show the menu if authenticated
-            showMenu();
-        }
-    });
-});
+            $('#crossword-game').click(function() {
+                $(this).addClass('button-clicked');
+                setTimeout(() => {
+                    window.location.href = 'crossword.html';
+                }, 500);
+            });
 
-// Display the main menu
-function showMenu() {
-    document.querySelector('.container h1').innerText = 'Welcome to CryptoCrafters';
-    document.getElementById('game-area').innerHTML = '';
-    displayGameButtons(true);
-}
+            $('.container h1').hover(
+                function() { $(this).addClass('title-hover'); },
+                function() { $(this).removeClass('title-hover'); }
+            );
 
-// Toggle the visibility of game buttons
-function displayGameButtons(shouldDisplay) {
-    document.querySelectorAll('#cryptogram-game, #crossword-game').forEach(button => { 
-        button.style.display = shouldDisplay ? 'block' : 'none'; 
-    });
-}
+            // Toggle navigation menu
+            $('#burger-menu').click(function() {
+                $('.nav-widget').toggleClass('active');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="burger-menu" class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    
+    <nav class="nav-widget">
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="learning.html">Learn</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-// Start the selected game
-function startGame(title, startFunction) {
-    document.querySelector('.container h1').innerText = title;
-    displayGameButtons(false); 
-    startFunction(); 
-}
+    <div class="container-wrapper">
+        <div class="container">
+            <h1>CryptoCrafters</h1>
+            <p>Select a game to play:</p>
+            <button id="cryptogram-game">
+                <img src="icons/cryptogram-icon.png" alt="Cryptogram Icon" class="icon-3d">
+                Cryptogram
+            </button>
+            <button id="crossword-game">
+                <img src="icons/crossword-icon.png" alt="Crossword Icon" class="icon-3d">
+                Crossword
+            </button>
+        </div>
+    </div>
+</body>
 
-// Launch the Cryptogram game
-function startCryptogramGame() {
-    startGame('Cryptogram Game', startCryptogram); 
-}
+<div class="auth-buttons">
+    <button onclick="window.location.href='login.html'">Log In</button>
+</div>
 
-// Launch the Crossword game
-function startCrosswordGame() {
-    startGame('Crossword Game', startDecoding); 
-}
 
-// Highlight active navigation link
-document.querySelectorAll('.nav-links li a').forEach(link => {
-    link.addEventListener('click', function() {
-        document.querySelectorAll('.nav-links li').forEach(item => item.classList.remove('active'));
-        this.classList.add('active');
-    });
-});
 
-// Game button click handlers
-document.getElementById('cryptogram-game').addEventListener('click', startCryptogramGame);
-document.getElementById('crossword-game').addEventListener('click', startCrosswordGame);
+</html>
