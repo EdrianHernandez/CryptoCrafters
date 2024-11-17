@@ -1,0 +1,206 @@
+body {
+    font-family: helvetica, sans-serif;
+    background: rgb(0, 150, 255);
+    background: radial-gradient(circle, rgba(0, 150, 255, 1) 0%, rgba(9, 9, 121, 1) 34%, rgba(2, 0, 36, 1) 100%);
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack header above content */
+    align-items: center; /* Center the entire layout horizontally */
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px; /* Adds spacing between header and content */
+    width: 100%;
+}
+
+h1 {
+    color: #ffcc00;
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+h1:hover {
+    text-shadow: 0 0 10px rgba(72, 255, 0, 0.6);
+}
+
+#back-button {
+    position: absolute;
+    top: 55px;
+    left: 50px;
+    background-color: transparent;
+    color: #ffcc00;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+#back-button:hover {
+    transform: scale(1.3);
+}
+
+.help-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    background: none;
+    border: none;
+}
+
+.instruction-container {
+    position: fixed;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    padding: 15px; 
+    max-width: 95%; 
+    width: 50%; 
+    font-size: 14.5px; 
+    text-align: left;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    overflow: auto; 
+    z-index: 1000; 
+}
+
+#close-instruction-btn {
+    margin-top: 15px;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#container {
+    display: flex;
+    gap: 20px; /* Space between crossword and clues containers */
+    justify-content: center; /* Center the content horizontally */
+    max-width: 95%;
+    margin-top: 20px; /* Space above content */
+}
+
+#crossword-container {
+    width: 65%;
+    height: 800px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.crossword-grid-cell-number {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    font-family: tahoma;
+    font-size: 0.8em;
+    color: rgba(2, 0, 36, 1); 
+    margin: 4px; 
+    z-index: 1; 
+    text-align: left; 
+}
+
+td {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    position: relative;
+    padding: 0;
+}
+
+input {
+    text-align: center;
+    height: 35px;
+    width: 35px;
+    font-size: 18px;
+    border: 1px solid #31511E;
+    background-color: #F3F3F3;
+    border-radius: 8px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3),
+                inset 0px -2px 4px rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:hover {
+    background-color: #fcf04b; 
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.35),
+                inset 0px -2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.black-cell {
+    background-color: transparent;
+}
+
+#clues-container {
+    width: 50%;
+    height: 480px;
+    margin-top: 50px;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid rgba(2, 0, 36, 1);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color:#31511E;
+    margin: 0 0 10px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+button {
+    max-width: 200px;
+    padding: 10px 15px;
+    margin-top: 20px;
+    margin-left:30px;
+    border: none;
+    background-color: #ffcc00;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ffd427;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.button-clicked {
+    animation: clickEffect 0.5s ease;
+}
+
+@keyframes clickEffect {
+    0% { box-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 204, 0, 0.6); }
+    100% { box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+}
