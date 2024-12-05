@@ -1,4 +1,3 @@
-/* Main page styling and gradient background animation */
 body {
     font-family: Arial, sans-serif;
     background: rgb(2, 0, 36);
@@ -7,26 +6,25 @@ body {
     animation: gradientBackground 12s ease infinite;
     color: #333;
     margin: 0;
-    padding: 20px; 
+    padding: 20px; /* Added padding for better spacing */
 }
 
-/* Main container for content */
 .container {
     text-align: center;
     max-width: 1000px;
-    margin: 35px auto;
+    margin: 35px auto; /* Centering the container with top margin */
     padding: 20px;
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Navigation menu and burger button */
+/* Burger Menu Styles */
 .burger {
     position: fixed;
     top: 30px;
     left: 30px;
-    z-index: 1000; 
+    z-index: 1000; /* Ensure the burger menu is on top */
     cursor: pointer;
 }
 
@@ -43,17 +41,17 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px; 
+    width: 250px; /* Width of the navigation */
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    transform: translateX(-100%); 
+    transform: translateX(-100%); /* Hide off-screen by default */
     transition: transform 0.3s ease;
-    z-index: 900; 
+    z-index: 900; /* Behind the burger menu */
 }
 
 .nav-widget.active {
-    transform: translateX(0); 
+    transform: translateX(0); /* Slide in */
 }
 
 .nav-links {
@@ -67,12 +65,12 @@ body {
 .nav-links ul {
     list-style: none;
     padding: 0;
-    width: 100%; 
-    text-align: center; 
+    width: 100%; /* Ensures the ul takes the full width */
+    text-align: center; /* Center align the text */
 }
 
 .nav-links li {
-    margin: 15px 0; 
+    margin: 15px 0; /* Space between menu items */
 }
 
 .nav-links a {
@@ -80,12 +78,12 @@ body {
     color: white;
     font-size: 1.5em;
     transition: color 0.3s;
-    display: inline-block; 
-    width: 100%; 
+    display: inline-block; /* Allow block-level centering */
+    width: 100%; /* Ensure the anchor takes the full width of li */
 }
 
 .nav-links a:hover {
-    color: #333; 
+    color: #333; /* Change color on hover */
     background-color: #1ab0ce;
     border-radius: 8px;
     transform: scale(1.02);
@@ -121,7 +119,6 @@ p {
     animation: fadeIn 0.6s forwards;
 }
 
-/* Team section styling */
 .team {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping for smaller screens */
@@ -136,7 +133,6 @@ p {
     margin: 40px 0;
 }
 
-/* Team member card styling */
 .team-member {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
@@ -155,20 +151,20 @@ p {
 }
 
 .team-name {
-    color: #ffcc00; 
+    color: #ffcc00; /* Gold color for names */
     font-size: 1.8em;
     margin: 10px 0;
 }
 
 .team-role {
-    color: #191c1d; 
+    color: #191c1d; /* Light blue for roles */
     font-size: 1.2em;
     margin: 5px 0;
     font-weight: 500;
 }
 
 .team-description {
-    color: #ffffff; 
+    color: #ffffff; /* White color for descriptions */
     font-size: 1em;
     margin: 10px 0;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -179,7 +175,7 @@ p {
     margin-top: 10px;
     display: flex;
     gap: 10px;
-    justify-content: center; 
+    justify-content: center; /* Center buttons horizontally */
 }
 
 /* Base styling for social icon buttons */
@@ -196,28 +192,30 @@ p {
     font-size: 20px;
 }
 
+/* Facebook button styling */
 .facebook-btn {
-    background-color: #3b5998; 
+    background-color: #3b5998; /* Facebook color */
 }
 
 .facebook-btn:hover {
-    background-color: #2d4373; 
+    background-color: #2d4373; /* Darker on hover */
 }
 
+/* GitHub button styling */
 .github-btn {
-    background-color: #333; 
+    background-color: #333; /* GitHub color */
 }
 
 .github-btn:hover {
-    background-color: #24292e; 
+    background-color: #24292e; /* Darker on hover */
 }
 
 .gmail-btn {
-    background-color: #D44638;
+    background-color: #D44638; /* Gmail red color */
 }
 
 .gmail-btn:hover {
-    background-color: #B23121; 
+    background-color: #B23121; /* Darker Gmail color on hover */
 }
 
 @keyframes gradientBackground {
@@ -226,7 +224,7 @@ p {
     100% { background-position: 0% 50%; }
 }
 
-/* Media queries for responsive design */
+/* Responsive Styles */
 @media (max-width: 1200px) {
     h1 {
         font-size: 2.5em;
@@ -237,9 +235,11 @@ p {
     .container {
         padding: 15px;
     }
+    /* Adjust navigation widget width */
     .nav-widget {
         width: 200px;
     }
+    /* Font size for navigation links */
     .nav-links a {
         font-size: 1.2em;
     }

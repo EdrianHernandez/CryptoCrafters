@@ -1,12 +1,8 @@
-/* Import Poppins font for modern typography */
 @import url(https://fonts.googleapis.com/css?family=Poppins:300);
-
-/* Reset default box sizing */
 *, *:before, *:after {
     box-sizing: border-box;
 }
 
-/* Main background with gradient animation */
 body {
     height: 100vh;
     background: rgb(2, 0, 36);
@@ -17,7 +13,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Link styling with hover effect */
 a {
     text-decoration: none;
     color: #020024;
@@ -28,7 +23,6 @@ a:hover {
     color: #1207e0;
 }
 
-/* Form container with glass effect */
 .form {
     background: rgba(255, 255, 255, 0.6);
     padding: 40px;
@@ -38,7 +32,6 @@ a:hover {
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
 }
 
-/* Base input and textarea styles */
 input, textarea {
     font-size: 17px;
     display: block;
@@ -53,7 +46,7 @@ input, textarea {
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Login form section styling */
+/* Login form container */
 #login {
     width: 100%;
     max-width: 400px;
@@ -72,7 +65,7 @@ input, textarea {
     letter-spacing: 1.5px;
 }
 
-/* Sign-up form section styling */
+/* Sign-up container */
 #signup {
     width: 100%;
     max-width: 400px;
@@ -91,7 +84,7 @@ input, textarea {
     letter-spacing: 1.5px;
 }
 
-/* Input field container with icon */
+/* Input group styling */
 .input-group {
     position: relative;
     margin: 15px 0;
@@ -103,7 +96,6 @@ input, textarea {
     border: 1px solid #ddd;
 }
 
-/* Icon styling within input group */
 .input-group i {
     color: #666;
     margin-right: 10px;
@@ -177,7 +169,6 @@ input, textarea {
     text-align: right;
 }
 
-/* Form switch link styling */
 .switch-form {
     font-size: 14px;
     color: #666;

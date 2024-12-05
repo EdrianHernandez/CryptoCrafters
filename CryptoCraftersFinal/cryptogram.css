@@ -9,7 +9,6 @@ body {
     padding: 0;
 }
 
-/* Main container and game layout */
 .container {
     max-width: 1000px;
     margin: 50px auto;
@@ -54,7 +53,6 @@ body {
     animation: fadeIn 1s ease forwards;
 }
 
-/* Navigation and control elements */
 #back-button {
     position: absolute;
     top: 30px;
@@ -76,10 +74,10 @@ body {
 }
 
 #back-button i {
-    font-size: 22px;
+    font-size: 22px; /* Adjust the icon size */
 }
 
-/* Game interface elements */
+/* Encoded Quote Layout */
 .encoded-quote-container {
     display: flex;
     justify-content: center;
@@ -321,12 +319,11 @@ button:active {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 1000;
-    
+    z-index: 1000; /* Ensures it stays above other content */
 }
 
 #learn-more-btn:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* Leaderboard Styles */
@@ -493,8 +490,14 @@ button:active {
         left: 35px; 
     }
 
+    #leaderboard-btn {
+        font-size: 20px; 
+        margin-top: 10px;
+    }
+
     .help-btn {
-        font-size: 22px; 
+        font-size: 20px; 
+        margin-top: 13px;
     }
 
     .instructions-popup {
@@ -553,10 +556,18 @@ button:active {
         left: 30px; 
     }
 
-    #leaderboard-btn, .help-btn {
-        font-size: 20px; 
-    }
     
+    #leaderboard-btn {
+        font-size: 20px; 
+        margin-top: 10px;
+    }
+
+    .help-btn {
+        font-size: 20px; 
+        margin-top: 14px;
+    }
+
+    /* Instructions Popup Styling */
     .instructions-popup {
         padding: 15px; 
         max-width: 95%; 
