@@ -490,8 +490,14 @@ button:active {
         left: 35px; 
     }
 
+    #leaderboard-btn {
+        font-size: 20px; 
+        margin-top: 10px;
+    }
+
     .help-btn {
-        font-size: 22px; 
+        font-size: 20px; 
+        margin-top: 13px;
     }
 
     .instructions-popup {
@@ -551,8 +557,14 @@ button:active {
     }
 
     
-    #leaderboard-btn, .help-btn {
+    #leaderboard-btn {
         font-size: 20px; 
+        margin-top: 10px;
+    }
+
+    .help-btn {
+        font-size: 20px; 
+        margin-top: 14px;
     }
 
     /* Instructions Popup Styling */

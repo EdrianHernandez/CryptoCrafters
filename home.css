@@ -28,7 +28,7 @@ body {
 .container-wrapper::before {
     content: '';
     position: absolute;
-    top: 170px; /* Adjusted to move down slightly */
+    top: 220px; /* Adjusted to move down slightly */
     right: 900px; /* Position for juggle.gif */
     bottom: 0;
     width: 40%; /* Adjust width for overlay */
@@ -442,10 +442,31 @@ button:active .icon-3d {
         margin: 10px 0;
     }
 
-    .auth-buttons button {
-        width: 80px;
-        height: 35px;
+    .auth-buttons {
+        top: 20px;
+        right: 5px;
+        gap: 10px;
+    }
+
+    #user-name {
+        font-size: 1em;
+        padding: 5px 10px;
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    #logout-btn {
         font-size: 0.8em;
+        padding: 4px 8px;
+    }
+
+    .auth-buttons button {
+        padding: 4px 8px;
+        font-size: 0.8em;
+        min-width: 45px;
+        height: 28px;
     }
 }
 
@@ -491,5 +512,25 @@ button:active .icon-3d {
 
     .nav-links a {
         font-size: 1.2em;
+    }
+
+    .auth-buttons {
+        top: 20px;
+        right: 5px;
+        gap: 8px;
+    }
+
+    #user-name {
+        font-size: 0.9em;
+        padding: 3px 8px;
+        max-width: 100px;
+        margin-right: 3px;
+    }
+
+    .auth-buttons button {
+        padding: 3px 6px;
+        font-size: 0.75em;
+        min-width: 40px;
+        height: 24px;
     }
 }
