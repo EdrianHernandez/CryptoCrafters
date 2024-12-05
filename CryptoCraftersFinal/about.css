@@ -1,0 +1,310 @@
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 45%, rgba(0, 212, 255, 1) 100%);
+    background-size: 200% 200%;
+    animation: gradientBackground 12s ease infinite;
+    color: #333;
+    margin: 0;
+    padding: 20px; /* Added padding for better spacing */
+}
+
+.container {
+    text-align: center;
+    max-width: 1000px;
+    margin: 35px auto; /* Centering the container with top margin */
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Burger Menu Styles */
+.burger {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 1000; /* Ensure the burger menu is on top */
+    cursor: pointer;
+}
+
+.burger .line {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    margin: 6px 0;
+    transition: all 0.3s;
+}
+
+/* Navigation Widget Styles */
+.nav-widget {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Width of the navigation */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(-100%); /* Hide off-screen by default */
+    transition: transform 0.3s ease;
+    z-index: 900; /* Behind the burger menu */
+}
+
+.nav-widget.active {
+    transform: translateX(0); /* Slide in */
+}
+
+.nav-links {
+    align-items: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    width: 100%; /* Ensures the ul takes the full width */
+    text-align: center; /* Center align the text */
+}
+
+.nav-links li {
+    margin: 15px 0; /* Space between menu items */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    transition: color 0.3s;
+    display: inline-block; /* Allow block-level centering */
+    width: 100%; /* Ensure the anchor takes the full width of li */
+}
+
+.nav-links a:hover {
+    color: #333; /* Change color on hover */
+    background-color: #1ab0ce;
+    border-radius: 8px;
+    transform: scale(1.02);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 212, 255, 0.6);
+    letter-spacing: 1.5px;
+    animation: fadeIn 0.6s forwards;
+}
+
+p {
+    margin: 15px 0;
+    font-size: 1.2em;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.6s forwards;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center; /* Center align team members */
+    margin-top: 30px; /* Space above team section */
+}
+
+.team {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.team-member {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px;
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.team-name {
+    color: #ffcc00; /* Gold color for names */
+    font-size: 1.8em;
+    margin: 10px 0;
+}
+
+.team-role {
+    color: #191c1d; /* Light blue for roles */
+    font-size: 1.2em;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.team-description {
+    color: #ffffff; /* White color for descriptions */
+    font-size: 1em;
+    margin: 10px 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Container for social buttons */
+.social-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Center buttons horizontally */
+}
+
+/* Base styling for social icon buttons */
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+}
+
+/* Facebook button styling */
+.facebook-btn {
+    background-color: #3b5998; /* Facebook color */
+}
+
+.facebook-btn:hover {
+    background-color: #2d4373; /* Darker on hover */
+}
+
+/* GitHub button styling */
+.github-btn {
+    background-color: #333; /* GitHub color */
+}
+
+.github-btn:hover {
+    background-color: #24292e; /* Darker on hover */
+}
+
+.gmail-btn {
+    background-color: #D44638; /* Gmail red color */
+}
+
+.gmail-btn:hover {
+    background-color: #B23121; /* Darker Gmail color on hover */
+}
+
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    p {
+        font-size: 1.1em;
+    }
+    .container {
+        padding: 15px;
+    }
+    /* Adjust navigation widget width */
+    .nav-widget {
+        width: 200px;
+    }
+    /* Font size for navigation links */
+    .nav-links a {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin-top: 100px;
+    }
+    .team {
+        flex-direction: column;
+    }
+    .team-member {
+        max-width: 90%;
+    }
+    .team-name {
+        font-size: 2.5em;
+    }
+    .team-description {
+        font-size: 1.4em;
+    }
+    h1 {
+        font-size: 3em;
+    }
+    p {
+        font-size: 1.3em;
+    }
+    .nav-widget {
+        width: 40%;
+    }
+    .nav-links a {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin-top: 50px;
+    }
+    .team {
+        flex-direction: column;
+    }
+    .team-member {
+        max-width: 80%;
+    }
+    h1 {
+        margin-top: 40px;
+        font-size: 2.3em;
+    }
+    p {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+    .burger {
+        top: 20px;
+        left: 20px;
+    }
+    .container {
+        padding: 5px;
+    }
+    .nav-widget {
+        width: 50%;
+    }
+    .nav-links a {
+        font-size: 1.2em;
+    }
+}
