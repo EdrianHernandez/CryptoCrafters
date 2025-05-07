@@ -3,7 +3,7 @@
 
 ### Prerequisites
 
-[x] - Python (For running the web server)
+- [x] Python (For running the web server) <br>
 
 ### To run
 
