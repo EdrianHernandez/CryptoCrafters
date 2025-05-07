@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register/Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+  <a href="home.html" id="back-button" aria-label="Back">
+    <i class="fas fa-arrow-left"></i>
+  </a>
+
+  <div class="form">
+
+      <!-- Login Section -->
+    <div id="login" class="form-section">
+      <h1>Login</h1>
+      <form id="login-form">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="email" id="login-email" required placeholder="Email" />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="login-password" required placeholder="Password" />
+        </div>
+        <button type="button" id="login-btn" class="login-button">Sign in</button>
+        <p class="forgot">
+          <a href="#" id="forgot-password">Forgot password?</a>
+        </p>
+        <p class="switch-form">
+          Don't have an account? <a href="#signup" onclick="switchToSignup()">Sign up here</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- Sign-up Section -->
+    <div id="signup" class="form-section" style="display: none;">
+      <h1>Register</h1>
+      <form id="signup-form">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="first-name" required placeholder="First Name" />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="last-name" required placeholder="Last Name" />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" required placeholder="Email Address" />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" required placeholder="Password" />
+        </div>
+        <button type="button" id="signup-btn" class="signup-button">Sign Up</button>
+        <p class="switch-form">
+          Already have an account? <a href="#login" onclick="switchToLogin()">Log in here</a>
+        </p>
+      </form>
+    </div>
+
+      
+    </div>
+  </div> 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="../static/js/firebase.js"></script>
+  <script type="module" src="../static/js/login.js"></script>
+</body>
+</html>

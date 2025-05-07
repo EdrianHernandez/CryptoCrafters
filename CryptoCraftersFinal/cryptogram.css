@@ -1,0 +1,577 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(0, 150, 255);
+    background: radial-gradient(circle, rgba(0, 150, 255, 1) 0%, rgba(9, 9, 121, 1) 34%, rgba(2, 0, 36, 1) 100%);
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#game-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    color: #ffcc00;
+    text-align: center;
+    margin: 70px 0;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+    transition: text-shadow 0.3s ease;
+    animation: fadeIn 1s ease forwards;
+}
+
+#game-title:hover {
+    text-shadow: 0 0 10px rgba(72, 255, 0, 0.6);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the fade-in animation */
+#game-title {
+    animation: fadeIn 1s ease forwards;
+}
+
+#back-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    text-decoration: none;
+    background-color: #000033;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+    transition: background-color 0.3s ease;
+}
+
+#back-button:hover {
+    background-color: #050080;
+}
+
+#back-button i {
+    font-size: 22px; /* Adjust the icon size */
+}
+
+/* Encoded Quote Layout */
+.encoded-quote-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Styling for the top info (score and timer) */
+.top-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 950px;
+    margin-bottom: 20px;
+}
+
+/* Score container styling */
+.score-container {
+    background-color: #28A745;  /* Green background */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Timer container styling */
+.timer {
+    background-color: #FF5733;  /* Timer background color */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.encoded-word {
+    margin: 0 10px;
+    display: flex;
+}
+
+.letter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 1s ease forwards;
+}
+
+input[type="text"] {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"]:hover {
+    background-color: #f5e835; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hover-effect {
+    background-color: #f5e835;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    margin: 0px;
+    border: none;
+    background-color: #ffcc00; 
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ffd427;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.button-clicked {
+    animation: clickEffect 0.5s ease;
+}
+
+/* Result Message */
+#result {
+    white-space: pre-line;
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+/* Help Button Styling */
+.help-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+}
+
+#leaderboard-btn {
+    position: absolute;
+    top: 24px;
+    right: 120px;
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    color: #ffcc00;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+#leaderboard-btn:hover {
+    transform: scale(1.1);
+    background-color: #05084b;
+}
+
+/* Instructions Popup Styling */
+.instructions-popup {
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    padding: 15px; 
+    max-width: 95%; 
+    width: 90%; 
+    font-size: 14.5px; 
+    text-align: left;
+    color: #333;
+    background-color: rgba(255, 255, 255, 1); 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    overflow: auto; 
+    z-index: 1000; 
+}
+
+/* Close Button Styling */
+#close-instructions {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.close-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.close-btn:hover {
+    background-color: #45a049;
+}
+
+#learn-more-btn {
+    position: fixed;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+#learn-more-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Leaderboard Styles */
+.leaderboard-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(94, 96, 97, 1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: 500px;
+    width: 95%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.leaderboard-popup h3 {
+    margin: 0;
+    color: #e7f707;
+    font-size: 1.9em;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f71717;
+}
+
+.leaderboard-header {
+    display: grid;
+    grid-template-columns: 60px 1fr 100px;
+    gap: 10px;
+    padding: 8px 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.leaderboard-header span {
+    display: block;
+}
+
+.leaderboard-header .rank {
+    text-align: center;
+}
+
+.leaderboard-header .name {
+    text-align: center;
+    margin-left: 10px;
+}
+
+.leaderboard-header .score {
+    text-align: center;
+    
+}
+
+.leaderboard-entry {
+    display: grid;
+    grid-template-columns: 60px 1fr 100px;
+    gap: 10px;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.leaderboard-entry .rank {
+    color: #F3F3F3;
+    font-weight: bold;
+    text-align: center;
+}
+
+.leaderboard-entry .name {
+    color: #F3F3F3;
+    text-align: center;
+    padding-left: 10px;
+}
+
+.leaderboard-entry .score {
+    color: #F3F3F3;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 10px;
+}
+
+.leaderboard-entry:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.leaderboard-entry.current-user {
+    background-color: rgba(76, 175, 80, 0.2);
+    font-weight: bold;
+}
+
+.loading, .error, .no-scores {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+}
+
+.error {
+    color: #f44336;
+}
+
+#close-leaderboard-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* Media Queries for Small Tablets and Large Mobile Screens */
+@media (max-width: 768px) {
+    .container {
+        margin: 25px;
+        padding: 18px;
+    }
+
+    #game-title {
+        font-size: 2.2em; 
+        margin-top: 70px; 
+    }
+
+    #timer {
+        font-size: 15px; 
+        padding: 5px 9px; 
+        margin-top: 12px; 
+    }
+
+    .encoded-quote-container {
+        margin: 55px 0;
+        justify-content: center;
+    }
+
+    .encoded-word {
+        margin: 0 6px;
+    }
+
+    input[type="text"] {
+        width: 26px;
+        height: 26px;
+        font-size: 18px;
+    }
+
+    button {
+        padding: 9px 13px;
+        font-size: 15px;
+    }
+
+    #result {
+        font-size: 17px;
+    }
+
+    #back-button {
+        font-size: 22px; 
+        top: 35px; 
+        left: 35px; 
+    }
+
+    #leaderboard-btn {
+        font-size: 20px; 
+        margin-top: 10px;
+    }
+
+    .help-btn {
+        font-size: 20px; 
+        margin-top: 13px;
+    }
+
+    .instructions-popup {
+        padding: 18px; 
+        max-width: 90%; 
+        width: 85%; 
+        font-size: 15px; 
+    }
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 480px) {
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    #game-title {
+        font-size: 2em; 
+        margin-top: 80px; 
+    }
+
+    .score-container, #timer {
+        font-size: 14px; 
+        padding: 4px 8px; 
+        margin-top: 20px; 
+    }
+
+    .encoded-quote-container {
+        margin: 50px 0;
+        justify-content: center;
+    }
+
+    .encoded-word {
+        margin: 0 5px;
+    }
+
+    input[type="text"] {
+        width: 18px;
+        height: 18px;
+        font-size: 20px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+
+    #result {
+        font-size: 16px;
+    }
+
+    #back-button {
+        font-size: 20px; 
+        top: 40px; 
+        left: 30px; 
+    }
+
+    
+    #leaderboard-btn {
+        font-size: 20px; 
+        margin-top: 10px;
+    }
+
+    .help-btn {
+        font-size: 20px; 
+        margin-top: 14px;
+    }
+
+    /* Instructions Popup Styling */
+    .instructions-popup {
+        padding: 15px; 
+        max-width: 95%; 
+        width: 90%; 
+        font-size: 14px; 
+    }
+}
