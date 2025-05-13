@@ -57,7 +57,8 @@ Complete the puzzle to finish the challenge.
 | <a href = "https://github.com/EdrianHernandez">Edrian Hernandez</a> | edrianhernandez07@gmail.com |  | | 
 | <a href = "https://github.com/m-ciavel"> Dirk Steven E. Javier </a>|  dirkjaviermvp@gmail.com |  |  |
 | <a href = "https://github.com/yuanenriquez"> Yuan Enriquez </a>| yuanenriquez15@gmail.com | |  |
-| <a href = "https://github.com/chosenvision"> Khristian Pinili </a>|  |  |  |
+| <a href = "https://github.com/chosenvision"> Khristian Pinili </a>| 
+kristhianpinili@gmail.com|  |  |
 | <a href = "https://github.com/kary3l"> Christian Kriel Quejada </a>| krielmacalintalquejada2004@gmail.com |  |  |
 
 ### Course Instructor:
