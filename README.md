@@ -17,10 +17,10 @@ python start-server.py
 
 ##  Contributors </a> <br>
 
-| Contributors |  |
+| Contributors | Email  |
 | --- | --- |
 | <a href = "https://github.com/EdrianHernandez">Edrian Hernandez</a> |  |  | |
-| <a href = "https://github.com/m-ciavel"> Dirk Steven E. Javier </a>|  |  |  |
+| <a href = "https://github.com/m-ciavel"> Dirk Steven E. Javier </a>|  dirkjaviermvp@gmail.com |  |  |
 | <a href = "https://github.com/yuanenriquez"> Yuan Enriquez </a>| | |  |
 | <a href = "https://github.com/chosenvision"> Khristian Pinili </a>|  |  |  |
 | <a href = "https://github.com/kary3l"> Christian Kriel Quejada </a>| |  |  |
