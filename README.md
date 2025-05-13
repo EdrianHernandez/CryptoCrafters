@@ -6,7 +6,7 @@ CryptoCrafters aims to ignite curiosity about encryption and computer science by
 
 ### <b>Technologies Used </b>:
 
-HTML, CSS, JavaScript
+HTML, CSS, JavaScript, Python
 
 Firebase (Authentication and Database)
 
