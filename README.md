@@ -1,4 +1,4 @@
-###CryptoCrafters
+### CryptoCrafters
 CryptoCrafters is an educational web-based platform created by a dedicated group of Computer Science students. It blends learning with fun through interactive games centered on cryptography, such as the Caesar cipher cryptogram and a computer science-themed crossword puzzle.
 
 📌 Project Overview
