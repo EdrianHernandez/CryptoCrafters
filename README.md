@@ -17,8 +17,8 @@ python start-server.py
 
 ##  Contributors </a> <br>
 
-| Name |  |
-| --- | |
+| Contributors |  |
+| --- | --- |
 | <a href = "https://github.com/EdrianHernandez">Edrian Hernandez</a> |  |  | |
 | <a href = "https://github.com/m-ciavel"> Dirk Steven E. Javier </a>|  |  |  |
 | <a href = "https://github.com/yuanenriquez"> Yuan Enriquez </a>| | |  |
