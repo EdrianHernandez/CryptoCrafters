@@ -14,6 +14,8 @@ Caesar Cipher Algorithm
 
 Responsive Web Design
 
+<em>
+
 ### Prerequisites
 
 - [x] Python (For running the web server) <br>
@@ -27,7 +29,7 @@ Open cmd in the directory and type:
 python start-server.py
 
 ```
-
+<em>
 
 ### 🎮 Usage Instructions
 ### 🧩 Caesar Cipher Cryptogram
@@ -61,7 +63,7 @@ Complete the puzzle to finish the challenge.
 ### Course Instructor:
 Ms. FATIMA MARIE P. AGDON, MSCS
 
-
+<em>
 ### Acknowledgment
 We would like to express our heartfelt gratitude to our instructor for their guidance throughout the development of this project. Special thanks to the online development communities and resources that helped us bring this idea to life.
 
