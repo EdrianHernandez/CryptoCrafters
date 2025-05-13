@@ -58,7 +58,12 @@ Complete the puzzle to finish the challenge.
 | <a href = "https://github.com/chosenvision"> Khristian Pinili </a>|  |  |  |
 | <a href = "https://github.com/kary3l"> Christian Kriel Quejada </a>| krielmacalintalquejada2004@gmail.com |  |  |
 
+### Course Instructor:
+Ms. FATIMA MARIE P. AGDON, MSCS
 
+
+### Acknowledgment
+We would like to express our heartfelt gratitude to our instructor for their guidance throughout the development of this project. Special thanks to the online development communities and resources that helped us bring this idea to life.
 
 ##  <a id = "notes"> 📝 Notes </a><br>
 <em>
