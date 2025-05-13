@@ -54,7 +54,7 @@ Complete the puzzle to finish the challenge.
 
 | Contributors | Email  |
 | --- | --- |
-| <a href = "https://github.com/EdrianHernandez">Edrian Hernandez</a> |  |  | |
+| <a href = "https://github.com/EdrianHernandez">Edrian Hernandez</a> | edrianhernandez07@gmail.com |  | | 
 | <a href = "https://github.com/m-ciavel"> Dirk Steven E. Javier </a>|  dirkjaviermvp@gmail.com |  |  |
 | <a href = "https://github.com/yuanenriquez"> Yuan Enriquez </a>| | |  |
 | <a href = "https://github.com/chosenvision"> Khristian Pinili </a>|  |  |  |
