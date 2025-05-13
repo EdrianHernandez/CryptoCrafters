@@ -1,10 +1,10 @@
-### CryptoCrafters
+## <b> CryptoCrafters </b>
 CryptoCrafters is an educational web-based platform created by a dedicated group of Computer Science students. It blends learning with fun through interactive games centered on cryptography, such as the Caesar cipher cryptogram and a computer science-themed crossword puzzle.
 
-📌 Project Overview
+### <b>📌 Project Overview </b>
 CryptoCrafters aims to ignite curiosity about encryption and computer science by offering game-based learning experiences. Users can decode famous quotes and solve puzzles while learning about the basics of cryptography and encountering terms related to computer science.
 
-### Technologies Used:
+### <b>Technologies Used </b>:
 
 HTML, CSS, JavaScript
 
@@ -16,7 +16,7 @@ Responsive Web Design
 
 <em>
 
-### Prerequisites
+### <b> Prerequisites </b>
 
 - [x] Python (For running the web server) <br>
 
@@ -31,8 +31,8 @@ python start-server.py
 ```
 <em>
 
-### 🎮 Usage Instructions
-### 🧩 Caesar Cipher Cryptogram
+### 🎮 <b> Usage Instructions </b>
+#### 🧩 <b> Caesar Cipher Cryptogram </b>
 A quote is encrypted using the Caesar cipher.
 
 Click on the white cells in the grid and type your decrypted letters.
@@ -41,7 +41,7 @@ Submit your answer to verify correctness.
 
 You can use hints or reset the puzzle if needed.
 
-### 🧠 Crossword Puzzle
+### 🧠 <b> Crossword Puzzle </b>
 Read the provided clues related to computer science terms.
 
 Click on the grid to start typing the correct words.
@@ -50,7 +50,7 @@ Use the "Check" feature to validate your answers.
 
 Complete the puzzle to finish the challenge.
 
-##  Contributors </a> <br>
+##  <b> Contributors </b> <br>
 
 | Contributors | Email  |
 | --- | --- |
